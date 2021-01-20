@@ -11,7 +11,7 @@
 <div class="bl-background">
     <div class="bl-list">
     	<div class="placeholder">
-        <input type="tel" name="Назва товару" placeholder="Назва товару">
+        <input type="tel" name="Назва товару" placeholder="Назва товару" autocomplete="off">
         <button class="placeholder-button" type="button"><b>Додати</b></button>
     </div>
         <hr>
@@ -20,7 +20,10 @@
                 Помідори
             </div>
             <div class="bl-count">
-            	<button class="bl-minus" disabled>-</button>
+            	<button class="bl-minus" disabled>-
+				<span class="tooltip">Reduce amount</span>
+            	</button>
+
                 <span class="bl-label">1</span>
                 <button class="bl-plus">+</button>
             </div>
@@ -30,7 +33,7 @@
             </div>
         </div>
         <hr>
-        <div class="bl-row" style="clear: both;">
+        <div class="bl-row">
             <div class="bl-product">
                 Печиво
             </div>
@@ -45,7 +48,7 @@
             </div>
         </div>
         <hr>
-        <div class="bl-row" style="clear: both;">
+        <div class="bl-row">
             <div class="bl-product">
                 Сир
             </div>
@@ -63,18 +66,22 @@
     <div class="bl-bought">
         <div class="bl-title"><b>Залишилося</b></div>
         <hr>
+        <div class="bought-products">
         	<div class="tomato">
-        		<p>Помідори </p> 
-        		<p id="one">1</p>
+        		<span>Помідори </span> 
+        		<span id="one">1</span>
+        	        </div>
+
+       	<div class="cookie">
+        		<span>Печиво </span> 
+        		<span id="one">1</span>
+		</div>
+		<div class="cheese">
+        		<span>Сир </span> 	
+        		<span id="one">1</span>
         	</div>
-        <div class="cookie">
-        		<p>Печиво </p> 
-        		<p id="one">1</p>
-        	</div>
-        	<div class="cheese">
-        		<p>Сир </p> 
-        		<p id="one">1</p>
-        	</div>
+        	
+        </div>
         	<br/>
         <hr>
         <div class="bl-title"><b>Куплено</b></div>
@@ -83,5 +90,8 @@
 
 
 </div>
+<!-- <div class="badge">
+	<p id="visible">Buy List</p>
+<p id="hide">Created by Sasha</p></div> -->
 </body>
 </html>
