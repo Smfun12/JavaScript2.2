@@ -16,31 +16,33 @@ button:active {
 
 
 .bl-background {
-    
+    	
 	margin: 100px;
-    margin-left: 200px auto;
+	margin-left: 10%;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-	/*transition: all 2s;*/
+    /*justify-content: space-around;*/
+	transition: all 2s;
+	/*border: 1px solid;*/
+    width: 80%;
+
 }
 
 .bl-list {
-	display: inline-block;
 	width: 63%;
     background: white;
-    margin-bottom: 10px;
     border-radius: 3px;
-    float: left;
     box-shadow:5px 10px 18px #888888;
 }
 .placeholder{
 	padding: 15px;
-	font-size: 0;
+	display: flex;
+	flex-direction: row;
 	height: 50px;
+	font-size: 0;
 }
 .placeholder input{	
-	width: 81.5%;
+	width: 90%;
 	height: 90%;
 	padding: 10px;
 	padding-bottom: 0px;
@@ -55,7 +57,8 @@ button:active {
 	color: #fff;
 	border:none;
 	cursor: pointer;
-	width: 15%; 
+	width: 15%;
+	/*width: auto; */
 	height: 95%;
 	border-top-right-radius: 2px;
 	border-bottom-right-radius: 2px;
@@ -65,12 +68,14 @@ button:active {
 	margin: 10px;
 	text-align: center;
 	padding-bottom: 5px;
+	display: flex;
+	flex-direction: row;
+	box-sizing: border-box;
 	
 }
 .bl-product{
-	float: left;
 	padding-left: 7px; 
-	width: 100px;
+	width: 60px;
 	text-align: left;
 	margin-top: 5px;
 }
@@ -96,7 +101,7 @@ button:active {
 }
 
 .bl-buttons{
-	float: right;
+	/*float: right;*/
 }
 .bl-minus{
 	background-color: #E13E3E;
@@ -111,10 +116,11 @@ button:active {
 	opacity: 0.5;
 	border-radius: 50%;
 }
+/*
+[data-tooltip]::after {
+  content: attr(data-tooltip); 
+}*/
 
-.bl-minus:hover .tooltip{
-	visibility: visible;
-}
 /*Кнопки*/
 .bl-label {
 	display: inline-block;
@@ -127,6 +133,21 @@ button:active {
     text-align: center; 
 
 }
+[data-tooltip]::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    width: 50px;
+    border-radius: 20%; 
+    background: #909;
+    color: #fff; 
+    padding: 0.5em; 
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: 1s; 
+   } 
+[data-tooltip]:hover::after {
+    opacity: 1;
+   }
 
 .bl-plus {
     background: #4CAF50;
@@ -168,18 +189,18 @@ button:active {
 .delete-button:hover {background-color: #CC1818}
 
 .bl-bought{
-	float: left;
     background: white;
-    width: 25%;
-    border-radius: 5px;
+    border-radius: 3px;
+    margin-left: 50px;
     height: 200px; 
-    padding: 15px; 
+    width: 300px;
+    padding: 10px; 
     font-size: 20px;
     box-shadow:5px 10px 18px #888888;
 }
 
 .bl-bought hr{	
-	margin: 20px -15px 5px;
+	margin: 10px -10px 3px;
 	padding: 5px;
     border-top: 1px solid #c9c7c7;
 }
@@ -188,33 +209,28 @@ button:active {
 	flex-direction: row;
 	font-size: 12px;
 	margin-top: 10px;
-	margin-bottom: -30px;
 }
 
-.bought-products span {
-	border-radius: 5px;
-}
 .bought-products #one{
 	background-color: orange;
 	color: #fff;
 	border-radius: 100%;
-	padding: 4px;
-	margin-left: 2px;
+	padding: 3px;
 }
 
 .tomato{
-	background-color: #E9E9E9;
+	background-color: #D6D6D6;
 	border-radius: 5px;
 	padding: 5px;
 }
 .cookie{
-	background-color: #E9E9E9;
+	background-color: #D6D6D6;
 	border-radius: 5px;
 	padding: 5px;
 	margin-left: 4px;
 }
 .cheese{
-	background-color: #E9E9E9;
+	background-color: #D6D6D6;
 	border-radius: 5px;
 	padding: 5px;
 	margin-left: 4px;
@@ -224,7 +240,7 @@ button:active {
 
 .badge{
 	position: fixed;
-	bottom: 5px;
+	bottom: 0px;
 	color: #fff;
 	background-color: #781BB4;
 	text-align: center;
@@ -232,8 +248,7 @@ button:active {
 	height: 30px;
 	border-top-right-radius: 7px;
 	border-top-left-radius: 7px;
-	transition: height 2s;
-	overflow-y: hidden;
+	transition: 2s;
 }
 
 .badge #visible{
@@ -252,6 +267,11 @@ button:active {
    color:#666;
    font-size:24px;
    }
+
+   .badge{
+	border: 1px solid black;
+
+   }
    .badge #visible {
     visibility: hidden;
     position: relative;
@@ -264,4 +284,45 @@ button:active {
     content: "Created by Sasha";
 }
 	
+}
+
+@media(max-width: 800px){
+	.bl-background {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+	.bl-list{
+
+		width: 100%;
+	}
+	.bl-bought{
+	width: auto;
+	margin-top: 25px;
+    margin-left: 0;
+
+	}
+	.placeholder-button{
+		width: 25%;
+	}
+
+}
+
+@media(max-width: 500px){
+	.bl-background {
+}
+
+	.bl-list{
+		width: 100%;
+	}
+	.bl-bought{
+	margin-top: 25px;
+    margin-left: 0;
+
+	}
+	.placeholder-button{
+		/*width: auto;*/
+	}
+
 }

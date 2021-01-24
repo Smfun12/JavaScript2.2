@@ -20,12 +20,11 @@
                 Помідори
             </div>
             <div class="bl-count">
-            	<button class="bl-minus" disabled>-
-				<span class="tooltip">Reduce amount</span>
+            	<button class="bl-minus" data-tooltip="reduce" disabled>-
             	</button>
 
-                <span class="bl-label">1</span>
-                <button class="bl-plus">+</button>
+            <span class="bl-label" data-tooltip="amount">1</span>
+                <button class="bl-plus" data-tooltip="add">+</button>
             </div>
             <div class="bl-buttons">
                 <button class="bought-button">Куплено</button>
@@ -38,9 +37,9 @@
                 Печиво
             </div>
             <div class="bl-count">
-            	<button class="bl-minus" disabled>-</button>
-                <span class="bl-label">1</span>
-                <button class="bl-plus">+</button>
+            	<button class="bl-minus" data-tooltip="reduce" disabled>-</button>
+                <span class="bl-label" data-tooltip="amount" >1</span>
+                <button class="bl-plus" data-tooltip="add">+</button>
             </div>
             <div class="bl-buttons">
                 <button class="bought-button">Куплено</button>
@@ -53,9 +52,9 @@
                 Сир
             </div>
             <div class="bl-count">
-            	<button class="bl-minus" disabled>-</button>
-                <span class="bl-label">1</span>
-                <button class="bl-plus">+</button>
+            	<button class="bl-minus" data-tooltip="reduce" disabled>-</button>
+                <span class="bl-label" data-tooltip="amount">1</span>
+                <button class="bl-plus" data-tooltip="add">+</button>
             </div>
             <div class="bl-buttons">
                 <button class="bought-button">Куплено</button>
@@ -65,7 +64,7 @@
     </div>
     <div class="bl-bought">
         <div class="bl-title"><b>Залишилося</b></div>
-        <hr>
+        <hr id="none">
         <div class="bought-products">
         	<div class="tomato">
         		<span>Помідори </span> 
@@ -90,6 +89,6 @@
 </div>
 <div class="badge">
     <p id="visible">Buy List</p>
-<p id="hide">Created by Sasha</p></div>
+<p>Created by Sasha</p></div>
 </body>
 </html>
