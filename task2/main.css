@@ -17,19 +17,20 @@ button:active {
 
 .bl-background {
     	
-	margin: 100px;
-	margin-left: 10%;
+    margin-top: 100px;
     display: flex;
     flex-direction: row;
     /*justify-content: space-around;*/
 	transition: all 2s;
 	/*border: 1px solid;*/
-    width: 80%;
-
+    width: 90%;
+    
 }
 
 .bl-list {
-	width: 63%;
+	width: 800px;
+	margin-left: auto;
+	min-width: 300px;
     background: white;
     border-radius: 3px;
     box-shadow:5px 10px 18px #888888;
@@ -39,7 +40,6 @@ button:active {
 	display: flex;
 	flex-direction: row;
 	height: 50px;
-	font-size: 0;
 }
 .placeholder input{	
 	width: 90%;
@@ -57,7 +57,7 @@ button:active {
 	color: #fff;
 	border:none;
 	cursor: pointer;
-	width: 15%;
+	width: 25%;
 	/*width: auto; */
 	height: 95%;
 	border-top-right-radius: 2px;
@@ -133,7 +133,7 @@ button:active {
     text-align: center; 
 
 }
-[data-tooltip]::after {
+/*[data-tooltip]::after {
     content: attr(data-tooltip);
     position: absolute;
     width: 50px;
@@ -148,7 +148,7 @@ button:active {
 [data-tooltip]:hover::after {
     opacity: 1;
    }
-
+*/
 .bl-plus {
     background: #4CAF50;
     border-radius: 50%;
@@ -212,10 +212,13 @@ button:active {
 }
 
 .bought-products #one{
-	background-color: orange;
-	color: #fff;
-	border-radius: 100%;
-	padding: 3px;
+	height: 15px;
+  width: 15px;
+  background-color: orange;
+  text-align: center;
+  color: white;
+  border-radius: 50%;
+  display: inline-block;
 }
 
 .tomato{
@@ -262,14 +265,11 @@ button:active {
 }
 
 @media print{
-   body{
-   font-family:Verdana, Papyrus, Arial;
-   color:#666;
-   font-size:24px;
-   }
-
+	
    .badge{
-	border: 1px solid black;
+	border: 1px solid #909;
+	background-color: white;
+	color: black;
 
    }
    .badge #visible {
@@ -282,8 +282,30 @@ button:active {
     top: 0;
     left: 0;
     content: "Created by Sasha";
+	}
 }
-	
+
+@media(max-width: 1300px){
+	.bl-list{
+		width: 700px;
+		margin-left: auto;
+	}
+
+	.bl-bought{
+		width: 250px;
+	}
+}
+@media(max-width: 1100px){
+	.bl-background{
+	}
+	.bl-list{
+		width: 600px;
+		margin-left: auto;
+	}
+
+	.bl-bought{
+		width: 300px;
+	}
 }
 
 @media(max-width: 800px){
@@ -291,27 +313,21 @@ button:active {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    width: 100%;
 }
 
 	.bl-list{
-
 		width: 100%;
 	}
 	.bl-bought{
-	width: auto;
 	margin-top: 25px;
     margin-left: 0;
+    width: -webkit-fill-available;
 
 	}
-	.placeholder-button{
-		width: 25%;
-	}
-
 }
 
 @media(max-width: 500px){
-	.bl-background {
-}
 
 	.bl-list{
 		width: 100%;
@@ -319,10 +335,7 @@ button:active {
 	.bl-bought{
 	margin-top: 25px;
     margin-left: 0;
+    width: 97.4;
 
 	}
-	.placeholder-button{
-		/*width: auto;*/
-	}
-
 }
