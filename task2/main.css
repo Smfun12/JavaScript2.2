@@ -8,8 +8,7 @@ hr{
     border-top: 1px solid #c9c7c7;
 }
 button{
-	transition: 2s;
-
+	transition: border-radius 1s;
 	outline: none;
 }
 button:active {
@@ -23,13 +22,13 @@ button:active {
     display: flex;
     flex-direction: row;
     width: 90%;
-    
+	transition: margin 1s;
 }
 
 .bl-list {
 	width: 800px;
 	margin-left: auto;
-	min-width: 300px;
+	min-width: 400px;
     background: white;
     border-radius: 3px;
 
@@ -269,7 +268,7 @@ span:hover::before {
 
 .bl-bought{
     background: white;
-
+    min-width: 250px;
     border-radius: 3px;
     margin-left: 50px;
     height: 200px; 
