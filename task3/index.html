@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head lang="uk">
+    <meta charset="UTF-8">
+    <title>My Page</title>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js">   </script>
+    <script type="text/javascript" src="main.js"></script>
+    <link rel="stylesheet" type="text/css" href="main.css" />
+</head>
+<body>
+<div class="bl-background">
+    <div class="bl-list">
+    	<div class="placeholder">
+        <input type="tel" name="Назва товару" placeholder="Назва товару" autocomplete="off">
+        <button class="placeholder-button" type="button" data-tooltip="Додати товар"><b>Додати</b></button> 
+    </div>
+        <hr>
+        <div class="bl-row">
+            <div class="bl-product">
+                Помідори
+            </div>
+            <div class="bl-count">
+            	<button class="bl-minus" data-tooltip="reduce">-
+            	</button>
+
+            <span class="bl-label" data-tooltip="amount">1</span>
+                <button class="bl-plus" data-tooltip="add">+</button>
+            </div>
+            <div class="bl-buttons">
+                <button class="bought-button" data-tooltip="Куплено">Куплено</button>
+                <button class="delete-button" data-tooltip="Видалити">x</button> 
+            </div>
+        </div>
+        <hr>
+        <div class="bl-row">
+            <div class="bl-product">
+                Печиво
+            </div>
+            <div class="bl-count">
+            	<button class="bl-minus" data-tooltip="reduce">-</button>
+                <span class="bl-label" data-tooltip="amount">1</span>
+                <button class="bl-plus" data-tooltip="add">+</button>
+            </div>
+            <div class="bl-buttons">
+                <button class="bought-button" data-tooltip="Куплено">Куплено</button>
+                <button class="delete-button" data-tooltip="Видалити">x</button> 
+            </div>
+        </div>
+        <hr>
+        <div class="bl-row">
+            <div class="bl-product">
+                Сир
+            </div>
+            <div class="bl-count">
+            	<button class="bl-minus" data-tooltip="reduce">-</button>
+                <span class="bl-label" data-tooltip="amount">1</span>
+                <button class="bl-plus" data-tooltip="add">+</button>
+            </div>
+            <div class="bl-buttons">
+                <button class="bought-button" data-tooltip="Куплено">Куплено</button>
+                <button class="delete-button" data-tooltip="Видалити">x</button> 
+            </div>
+        </div>
+    </div>
+    <div class="bl-bought">
+        <div class="bl-title"><b>Залишилося</b></div>
+        <hr id="none">
+        <div class="bought-products">
+        	<div class="tomato">
+        		<span>Помідори </span> 
+        		<span id="one">1</span>
+        	        </div>
+
+       	<div class="cookie">
+        		<span>Печиво </span> 
+        		<span id="one">1</span>
+		</div>
+		<div class="cheese">
+        		<span>Сир </span> 	
+        		<span id="one">1</span>
+        	</div>
+        	
+        </div>
+        	<br/>
+        <hr>
+        <div class="bl-title"><b>Куплено</b></div>
+        <hr>
+    </div>
+</div>
+<div class="badge">
+    <p id="visible">Buy List</p>
+<p>Created by Sasha</p></div>
+</body>
+</html>
