@@ -1,5 +1,6 @@
 var LIST    =   $('.bl-list');
 var ITEM_TEMPLATE   =   $('.bl-row').html();
+     
             $(document).ready(function(){
             $(".bl-plus").click(function(){
             var counter = $(this).parent().find(".bl-label");
@@ -42,17 +43,33 @@ var ITEM_TEMPLATE   =   $('.bl-row').html();
 
    $(".placeholder-button").click(function(){
      var text = $(".placeholder input").val();
-     var node = $(".bl-row").html();
-     $(node).find($(".bl-product")).text(text);
+     if (text != ''){
+           var node = $(".bl-row");
+           var newNode = node.clone();
+     newNode.find('.bl-product').text(text);
+     newNode.find('.bl-label').text(1);
+     newNode.find('.bl-minus')
+      .css("opacity", 0.5);
+      newNode.find('.bl-minus')
+      .css("cursor", "default");
+     newNode.find('.bl-minus')
+      .prop("disabled", true);
             $(".bl-list")
             .append("<hr>")
             .append
-            ("<div class='bl-row'>" + node
-            )
-            .append("</div>");
-   });
+            ("<div class='bl-row'>"+newNode.html())
+            .append('</div>');}
+              });
+              
     $(".delete-button").click(function(){
-     $(".delete-button").parent().parent()
+     $(this).parent().
+     parent().find('hr').remove();
+     $(this).parent().parent()
      .css("display","none");
+     
    });
 });
+
+function increment(){
+      console.log('hello');
+}
