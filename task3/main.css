@@ -34,7 +34,7 @@ button:active {
     height: fit-content;
     box-shadow:5px 10px 18px #888888;
 }
-.bl-list span{
+.bl-list span.bl-label{
 	display: inline-block;
 	width: 30px;
 	height: 25px;
@@ -99,9 +99,8 @@ button:active {
 	display: inline-block;
 	margin: 0 auto; 
 }
-
-.bl-buttons{
-	/*float: right;*/
+.bl-count span{
+	position: fixed; 
 }
 .bl-minus{
 	background-color: #E13E3E;

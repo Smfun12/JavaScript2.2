@@ -1,13 +1,22 @@
 var LIST    =   $('.bl-list');
 var ITEM_TEMPLATE   =   $('.bl-row').html();
 var node = $(".bl-row");
-var newNode = node.clone();     
-            $(document).ready(function(){
-   $(".placeholder-button").click(function(){
-     var text = $(".placeholder input").val();
+var newNode = node.clone();
+   
+          $(document).on('keypress',function(e) {
+      if(e.which == 13) {
+            var x = document.activeElement.tagName;
+            if (x == "INPUT"){
+                  addProduct(this);
+            }
+    }
+});
+
+function addProduct(element){
+var text = $(".placeholder input").val();
      if (text != ''){
            
-     newNode.find('.bl-product').text(text);
+     newNode.find('#plc').text(text);
      newNode.find('.bl-label').text(1);
      newNode.find('.bl-minus')
       .css("opacity", 0.5);
@@ -20,8 +29,33 @@ var newNode = node.clone();
             .append
             ("<div class='bl-row'>"+newNode.html())
             .append('</div>');}
-              });
-});
+            $(".placeholder input").val("");
+            $(".placeholder input").focus();
+}
+
+function editTitle(element){
+      element.style.display = "none";
+      var text = $(element).text();
+            input = document.createElement("input");
+            input.type = "text";
+            input.value = text;
+            input.size = Math.max(text.length / 4 * 3, 4);
+            element.parentNode.insertBefore(input, element);
+
+            // Focus it, hook blur to undo
+            input.focus();
+            input.onblur = function() {
+                // Remove the input
+                element.parentNode.removeChild(input);
+
+                // Update the span
+                element.innerHTML = input.value == "" ? "&nbsp;" : input.value;
+
+                // Show the span again
+                element.style.display = "";
+            };
+
+}
 
 function decrement(element){
       var counter = $(element).parent().find(".bl-label");
@@ -59,13 +93,42 @@ function increment(element){
              $(minus).css("background-color", "#DA2E2E");
              $(minus).css("cursor", "pointer");
             }
-      var text = $(element).parent().find(".bl-product").text();
+      var text = $(element).parent().parent().find(".bl-product").text();
+      var boughtList = $(".bl-bought").find(text);
+      console.log(boughtList.text());
             
+}
+function buyProduct(element){
+      var row = $(element).parent().parent();
+      if (row.find(".bought-button").text()=='Не куплено'){
+            
+            if (+row.find(".bl-label").text()>1){
+            row.find(".bl-minus").css("opacity","1");}
+            else{
+                  row.find(".bl-minus").css("opacity","0.5");
+            }
+      row.find(".bl-plus").css("opacity","1");
+      row.find(".bl-product").css("text-decoration","none");
+      row.find(".delete-button").css("display","inline-block");
+      row.find(".bl-label").css("margin","auto");
+      row.find(".bought-button").text("Куплено");
+      }
+      else{
+      row.find(".bl-minus").css("opacity","0");
+      row.find(".bl-plus").css("opacity","0");
+      row.find(".bl-product").css("text-decoration","line-through");
+      row.find(".delete-button").css("display","none");
+      row.find(".bl-label").css("margin-right","35px");
+      row.find(".bought-button").text("Не куплено");
+      }
 }
 
 function deleteProduct(element){
+      var previous = $(element).parent().
+     parent().prev();
+     previous.remove();
      $(element).parent().
-     parent().parent().find('hr').remove();
+     parent().parent().prev().remove();
      $(element).parent().parent()
      .remove();
 }

@@ -12,12 +12,12 @@
     <div class="bl-list">
     	<div class="placeholder">
         <input type="tel" name="Назва товару" placeholder="Назва товару" autocomplete="off">
-        <button class="placeholder-button" type="button" data-tooltip="Додати товар"><b>Додати</b></button> 
+        <button class="placeholder-button" type="button" onclick="addProduct(this)" data-tooltip="Додати товар"><b>Додати</b></button> 
     </div>
         <hr>
         <div class="bl-row">
             <div class="bl-product">
-                Помідори
+               <span id="plc" onclick="editTitle(this)">Помідори</span>
             </div>
             <div class="bl-count">
             	<button class="bl-minus" onclick="decrement(this)" data-tooltip="reduce" disabled>-
@@ -27,14 +27,14 @@
                 <button class="bl-plus" onclick="increment(this)" data-tooltip="add">+</button>
             </div>
             <div class="bl-buttons">
-                <button class="bought-button" data-tooltip="Куплено">Куплено</button>
+                <button class="bought-button" onclick="buyProduct(this)"  data-tooltip="Куплено">Куплено</button>
                 <button class="delete-button" onclick="deleteProduct(this)" data-tooltip="Видалити">x</button> 
             </div>
         </div>
         <hr>
         <div class="bl-row">
             <div class="bl-product">
-                Печиво
+                <span onclick="editTitle(this)">Печиво</span>
             </div>
             <div class="bl-count">
             	<button class="bl-minus" onclick="decrement(this)" data-tooltip="reduce" disabled>-</button>
@@ -42,14 +42,14 @@
                 <button class="bl-plus" onclick="increment(this)" data-tooltip="add">+</button>
             </div>
             <div class="bl-buttons">
-                <button class="bought-button"  data-tooltip="Куплено">Куплено</button>
+                <button class="bought-button"  onclick="buyProduct(this)" data-tooltip="Куплено">Куплено</button>
                 <button class="delete-button" onclick="deleteProduct(this)" data-tooltip="Видалити">x</button> 
             </div>
         </div>
         <hr>
         <div class="bl-row">
             <div class="bl-product">
-                Сир
+                <span onclick="editTitle(this)">Сир</span>
             </div>
             <div class="bl-count">
             	<button class="bl-minus" onclick="decrement(this)" data-tooltip="reduce" disabled>-</button>
@@ -57,7 +57,7 @@
                 <button class="bl-plus" onclick="increment(this)" data-tooltip="add">+</button>
             </div>
             <div class="bl-buttons">
-                <button class="bought-button" data-tooltip="Куплено">Куплено</button>
+                <button class="bought-button" onclick="buyProduct(this)" data-tooltip="Куплено">Куплено</button>
                 <button class="delete-button" onclick="deleteProduct(this)" data-tooltip="Видалити">x</button> 
             </div>
         </div>
@@ -74,13 +74,14 @@
        	<div class="cookie">
         		<span>Печиво </span> 
         		<span id="one">1</span>
-		</div>
+		</div>    
 		<div class="cheese">
         		<span>Сир </span> 	
         		<span id="one">1</span>
         	</div>
         	
         </div>
+
         	<br/>
         <hr>
         <div class="bl-title"><b>Куплено</b></div>
