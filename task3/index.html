@@ -20,15 +20,15 @@
                 Помідори
             </div>
             <div class="bl-count">
-            	<button class="bl-minus" data-tooltip="reduce">-
+            	<button class="bl-minus" onclick="decrement(this)" data-tooltip="reduce" disabled>-
             	</button>
 
             <span class="bl-label" data-tooltip="amount">1</span>
-                <button class="bl-plus"  data-tooltip="add">+</button>
+                <button class="bl-plus" onclick="increment(this)" data-tooltip="add">+</button>
             </div>
             <div class="bl-buttons">
                 <button class="bought-button" data-tooltip="Куплено">Куплено</button>
-                <button class="delete-button" data-tooltip="Видалити">x</button> 
+                <button class="delete-button" onclick="deleteProduct(this)" data-tooltip="Видалити">x</button> 
             </div>
         </div>
         <hr>
@@ -37,13 +37,13 @@
                 Печиво
             </div>
             <div class="bl-count">
-            	<button class="bl-minus" data-tooltip="reduce">-</button>
+            	<button class="bl-minus" onclick="decrement(this)" data-tooltip="reduce" disabled>-</button>
                 <span class="bl-label" data-tooltip="amount">1</span>
-                <button class="bl-plus" data-tooltip="add">+</button>
+                <button class="bl-plus" onclick="increment(this)" data-tooltip="add">+</button>
             </div>
             <div class="bl-buttons">
-                <button class="bought-button" data-tooltip="Куплено">Куплено</button>
-                <button class="delete-button" data-tooltip="Видалити">x</button> 
+                <button class="bought-button"  data-tooltip="Куплено">Куплено</button>
+                <button class="delete-button" onclick="deleteProduct(this)" data-tooltip="Видалити">x</button> 
             </div>
         </div>
         <hr>
@@ -52,13 +52,13 @@
                 Сир
             </div>
             <div class="bl-count">
-            	<button class="bl-minus" data-tooltip="reduce">-</button>
+            	<button class="bl-minus" onclick="decrement(this)" data-tooltip="reduce" disabled>-</button>
                 <span class="bl-label" data-tooltip="amount">1</span>
-                <button class="bl-plus" data-tooltip="add">+</button>
+                <button class="bl-plus" onclick="increment(this)" data-tooltip="add">+</button>
             </div>
             <div class="bl-buttons">
                 <button class="bought-button" data-tooltip="Куплено">Куплено</button>
-                <button class="delete-button" data-tooltip="Видалити">x</button> 
+                <button class="delete-button" onclick="deleteProduct(this)" data-tooltip="Видалити">x</button> 
             </div>
         </div>
     </div>
