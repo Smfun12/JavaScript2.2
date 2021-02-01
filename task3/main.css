@@ -273,13 +273,12 @@ button:hover::before {
 
 .bl-bought{
     background: white;
-    min-width: 250px;
+    width: 300px;
     border-radius: 3px;
     margin-left: 50px;
-    height: 200px; 
-    width: 300px;
+    height: fit-content; 
     padding: 10px; 
-    font-size: 20px;
+    font-size: 20px;	
     box-shadow:5px 10px 18px #888888;
 }
 
@@ -289,12 +288,20 @@ button:hover::before {
     border-top: 1px solid #c9c7c7;
 }
 .bought-products {
-	display: flex;
-	flex-direction: row;
+	display: inline-block;
 	font-size: 12px;
-	margin-top: 10px;
-}
+	padding: 5px;
 
+}
+.product{
+	display: inline-block;
+	background-color: #D6D6D6;
+	border-radius: 5px;
+	padding: 5px;
+	float: left;
+	margin-left: 2px;
+	margin-top: 2px;
+}
 .bought-products #one{
   height: 15px;
   width: 15px;
@@ -302,30 +309,9 @@ button:hover::before {
   text-align: center;
   color: white;
   border-radius: 50%;
+  margin-left:2px;
   display: inline-block;
 }
-
-.tomato{
-	background-color: #D6D6D6;
-	border-radius: 5px;
-	padding: 5px;
-	min-width: 50px;
-}
-.cookie{
-	background-color: #D6D6D6;
-	border-radius: 5px;
-	padding: 5px;
-	min-width: 20px;
-	margin-left: 4px;
-}
-.cheese{
-	background-color: #D6D6D6;
-	border-radius: 5px;
-	padding: 5px;
-	margin-left: 4px;
-	min-width: 50px;
-}
-
 
 
 .badge{
