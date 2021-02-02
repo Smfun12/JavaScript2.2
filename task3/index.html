@@ -1,98 +1,99 @@
 <!DOCTYPE html>
 <html>
-<head lang="uk">
-    <meta charset="UTF-8">
-    <title>My Page</title>
-
-   
-    <link rel="stylesheet" type="text/css" href="main.css" />
-</head>
-<body>
-<div class="bl-background">
-    <div class="bl-list">
-    	<div class="placeholder">
-        <input type="tel" name="Назва товару" placeholder="Назва товару" autocomplete="off">
-        <button class="placeholder-button" type="button" onclick="addProduct(this)" data-tooltip="Додати товар"><b>Додати</b></button> 
-    </div>
-        <hr>
-        <div class="bl-row">
-            <div class="bl-product">
-               <span id="plc" onclick="editTitle(this)">Помідори</span>
+    <head lang="uk">
+        <meta charset="UTF-8">
+        <title>My Page</title>
+        <link rel="stylesheet" type="text/css" href="main.css"/>
+    </head>
+    <body>
+        <div class="bl-background">
+            <div class="bl-list">
+                <div class="placeholder">
+                    <input type="tel" name="Назва товару" placeholder="Назва товару" autocomplete="off">
+                    <button class="placeholder-button" type="button" onclick="addProduct(this)" data-tooltip="Додати товар">
+                        <b>Додати</b>
+                    </button>
+                </div>
+                <hr>
+                <div class="bl-row">
+                    <div class="bl-product">
+                        <span id="plc" onclick="editTitle(this)">Помідори</span>
+                    </div>
+                    <div class="bl-count">
+                        <button class="bl-minus" onclick="decrement(this)" data-tooltip="reduce" disabled>-
+                </button>
+                        <span class="bl-label" data-tooltip="amount">1</span>
+                        <button class="bl-plus" onclick="increment(this)" data-tooltip="add">+</button>
+                    </div>
+                    <div class="bl-buttons">
+                        <button class="bought-button" onclick="buyProduct(this)" data-tooltip="Куплено">Куплено</button>
+                        <button class="delete-button" onclick="deleteProduct(this)" data-tooltip="Видалити">x</button>
+                    </div>
+                </div>
+                <hr>
+                <div class="bl-row">
+                    <div class="bl-product">
+                        <span onclick="editTitle(this)">Печиво</span>
+                    </div>
+                    <div class="bl-count">
+                        <button class="bl-minus" onclick="decrement(this)" data-tooltip="reduce" disabled>-</button>
+                        <span class="bl-label" data-tooltip="amount">1</span>
+                        <button class="bl-plus" onclick="increment(this)" data-tooltip="add">+</button>
+                    </div>
+                    <div class="bl-buttons">
+                        <button class="bought-button" onclick="buyProduct(this)" data-tooltip="Куплено">Куплено</button>
+                        <button class="delete-button" onclick="deleteProduct(this)" data-tooltip="Видалити">x</button>
+                    </div>
+                </div>
+                <hr>
+                <div class="bl-row">
+                    <div class="bl-product">
+                        <span onclick="editTitle(this)">Сир</span>
+                    </div>
+                    <div class="bl-count">
+                        <button class="bl-minus" onclick="decrement(this)" data-tooltip="reduce" disabled>-</button>
+                        <span class="bl-label" data-tooltip="amount">1</span>
+                        <button class="bl-plus" onclick="increment(this)" data-tooltip="add">+</button>
+                    </div>
+                    <div class="bl-buttons">
+                        <button class="bought-button" onclick="buyProduct(this)" data-tooltip="Куплено">Куплено</button>
+                        <button class="delete-button" onclick="deleteProduct(this)" data-tooltip="Видалити">x</button>
+                    </div>
+                </div>
             </div>
-            <div class="bl-count">
-            	<button class="bl-minus" onclick="decrement(this)" data-tooltip="reduce" disabled>-
-            	</button>
-
-            <span class="bl-label" data-tooltip="amount">1</span>
-                <button class="bl-plus" onclick="increment(this)" data-tooltip="add">+</button>
-            </div>
-            <div class="bl-buttons">
-                <button class="bought-button" onclick="buyProduct(this)"  data-tooltip="Куплено">Куплено</button>
-                <button class="delete-button" onclick="deleteProduct(this)" data-tooltip="Видалити">x</button> 
+            <div class="bl-bought">
+                <div class="bl-title">
+                    <b>Залишилося</b>
+                </div>
+                <hr>
+                <div class="bought-products">
+                    <div class="product">
+                        <span>Помідори</span>
+                        <span id="one">1</span>
+                    </div>
+                    <div class="product">
+                        <span>Печиво</span>
+                        <span id="one">1</span>
+                    </div>
+                    <div class="product">
+                        <span>Сир</span>
+                        <span id="one">1</span>
+                    </div>
+                </div>
+                <br/>
+                <hr>
+                <div class="bl-title">
+                    <b>Куплено</b>
+                </div>
+                <hr>
+                <div class="bought-product"></div>
             </div>
         </div>
-        <hr>
-        <div class="bl-row">
-            <div class="bl-product">
-                <span onclick="editTitle(this)">Печиво</span>
-            </div>
-            <div class="bl-count">
-            	<button class="bl-minus" onclick="decrement(this)" data-tooltip="reduce" disabled>-</button>
-                <span class="bl-label" data-tooltip="amount">1</span>
-                <button class="bl-plus" onclick="increment(this)" data-tooltip="add">+</button>
-            </div>
-            <div class="bl-buttons">
-                <button class="bought-button"  onclick="buyProduct(this)" data-tooltip="Куплено">Куплено</button>
-                <button class="delete-button" onclick="deleteProduct(this)" data-tooltip="Видалити">x</button> 
-            </div>
+        <div class="badge">
+            <p id="visible">Buy List</p>
+            <p>Created by Sasha</p>
         </div>
-        <hr>
-        <div class="bl-row">
-            <div class="bl-product">
-                <span onclick="editTitle(this)">Сир</span>
-            </div>
-            <div class="bl-count">
-            	<button class="bl-minus" onclick="decrement(this)" data-tooltip="reduce" disabled>-</button>
-                <span class="bl-label" data-tooltip="amount">1</span>
-                <button class="bl-plus" onclick="increment(this)" data-tooltip="add">+</button>
-            </div>
-            <div class="bl-buttons">
-                <button class="bought-button" onclick="buyProduct(this)" data-tooltip="Куплено">Куплено</button>
-                <button class="delete-button" onclick="deleteProduct(this)" data-tooltip="Видалити">x</button> 
-            </div>
-        </div>
-    </div>
-    <div class="bl-bought">
-        <div class="bl-title"><b>Залишилося</b></div>
-        <hr>
-        <div class="bought-products">
-        	<div class="product">
-        		<span>Помідори</span> 
-        		<span id="one">1</span>
-        	        </div>
-
-       	<div class="product">
-        		<span>Печиво</span> 
-        		<span id="one">1</span>
-		</div>    
-		<div class="product">
-        		<span>Сир</span> 	
-        		<span id="one">1</span>
-        	</div>
-        	
-        </div>
-
-        	<br/>
-        <hr>
-        <div class="bl-title"><b>Куплено</b></div>
-        <hr>
-        <div class="bought-product"></div>
-    </div>
-</div>
-<div class="badge">
-    <p id="visible">Buy List</p>
-<p>Created by Sasha</p></div>
- <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js">   </script>
-    <script type="text/javascript" src="main.js"></script>
-</body>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script type="text/javascript" src="main.js"></script>
+    </body>
 </html>

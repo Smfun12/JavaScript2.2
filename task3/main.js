@@ -36,15 +36,12 @@ function addProduct(element) {
 }
 
 function editTitle(element) {
-    var text = $(element).text();
-    input = document.createElement("input");
-    if ($(element).attr('disabled') != 'disabled') {
-        $(this).keyup(function() {
-            var product1 = $(".bought-products").find(`.product:contains(${text})`);
-            product1.find("#one").prev().text(input.value);
-            $(element).text(input.value);
-        });
+    
+    if ($(element).attr('disabled') != true) {
+        
         element.style.display = "none";
+    input = document.createElement("input");
+        
         text = $(element).text();
 
         input.type = "text";
@@ -54,6 +51,16 @@ function editTitle(element) {
 
         // Focus it, hook blur to undo
         input.focus();
+        $(this).keyup(function() {
+        var product1 = $("span").filter(function() {
+            return $(this).text() === text;
+        });
+        
+        
+        console.log(input.value);
+        console.log($(element).text());
+        product1.next().prev().text(input.value);
+        });
         input.onblur = function() {
             // Remove the input
             element.parentNode.removeChild(input);
@@ -63,16 +70,17 @@ function editTitle(element) {
 
             // Show the span again
             element.style.display = "";
-            var boughtList = $(".bl-bought").find(".bought-products");
-            var product = $(`span:contains(${text})`);
+            var product = $("span").filter(function() {
+                return $(this).text() === text;
+            });
             if (input.value == '') {
-                product.text('unknown');
-            } else
+                product.text('noTitle');
+            } else {
                 product.text(input.value);
-        }
+            }
 
+        }
     }
-    ;
 
 }
 
@@ -87,10 +95,9 @@ function decrement(element) {
         });
         $(element).attr('disabled', false);
         var text = $(element).parent().parent().find(".bl-product").text().replace(/\s/g, '');
-        var boughtList = $(".bl-bought").find(".bought-products");
-        var product = $(`span:contains(${text})`);
-        product.next().text(x - 1);
-        console.log(text);
+        $("span").filter(function() {
+            return $(this).text() === text;
+        }).next().text(x - 1);
     }
     x = $(counter).text();
     if (x == 2) {
@@ -117,9 +124,9 @@ function increment(element) {
         $(minus).css("cursor", "pointer");
     }
     var text = $(element).parent().parent().find(".bl-product").text().replace(/\s/g, '');
-    var boughtList = $(".bl-bought").find(".bought-products");
-    var product = $(`span:contains(${text})`);
-    product.next().text(+x + 1);
+    $("span").filter(function() {
+        return $(this).text() === text;
+    }).next().text(+x + 1);
 
 }
 function buyProduct(element) {
@@ -149,7 +156,7 @@ function buyProduct(element) {
         row.find(".bl-minus").css("opacity", "0");
         row.find(".bl-plus").css("opacity", "0");
         row.find(".bl-product").css("text-decoration", "line-through");
-        row.find(".bl-product").prop("disabled", true);
+        row.find(".bl-product").attr("disabled", true);
         row.find(".delete-button").css("display", "none");
         row.find(".bl-label").css("margin-right", "35px");
         row.find(".bought-button").text("Не куплено");
@@ -166,10 +173,9 @@ function deleteProduct(element) {
     $(element).parent().parent().parent().prev().remove();
     $(element).parent().parent().remove();
     var text = $(element).parent().parent().find(".bl-product").text().replace(/\s/g, '');
-    var boughtList = $(".bl-bought").find(".bought-products");
-    var product = $(`span:contains(${text})`);
-    product.parent().remove();
+    $("span").filter(function(){
+      return $(this).text() === text;
+    }).parent().remove();
     var pos = arrayList.indexOf(text);
     arrayList.splice(pos, 1);
-    console.log(arrayList);
 }
