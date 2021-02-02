@@ -301,8 +301,9 @@ button:hover::before {
 	float: left;
 	margin-left: 2px;
 	margin-top: 2px;
+	font-size: small;
 }
-.bought-products #one{
+#one{
   height: 15px;
   width: 15px;
   background-color: orange;
