@@ -51,15 +51,13 @@ function editTitle(element) {
 
         // Focus it, hook blur to undo
         input.focus();
-        $(this).keyup(function() {
+        $(input).keyup(function() {
+          // $("#tomato").text(input.value);
         var product1 = $("span").filter(function() {
-            return $(this).text() === text;
+            return $(element).text() === $(this).text();
         });
-        
-        
-        console.log(input.value);
-        console.log($(element).text());
-        product1.next().prev().text(input.value);
+        $(product1).next().prev().text(input.value);
+        $(element).text(input.value);
         });
         input.onblur = function() {
             // Remove the input
@@ -70,15 +68,6 @@ function editTitle(element) {
 
             // Show the span again
             element.style.display = "";
-            var product = $("span").filter(function() {
-                return $(this).text() === text;
-            });
-            if (input.value == '') {
-                product.text('noTitle');
-            } else {
-                product.text(input.value);
-            }
-
         }
     }
 
