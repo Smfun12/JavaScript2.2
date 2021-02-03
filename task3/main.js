@@ -36,11 +36,10 @@ function addProduct(element) {
 }
 
 function editTitle(element) {
-    
-    if ($(element).attr('disabled') != true) {
+    if ($(element).attr('disabled') != 'disabled') {
         
         element.style.display = "none";
-    input = document.createElement("input");
+      input = document.createElement("input");
         
         text = $(element).text();
 
@@ -132,7 +131,7 @@ function buyProduct(element) {
             row.find(".bl-minus").css("opacity", "0.5");
         }
         row.find(".bl-plus").css("opacity", "1");
-        row.find(".bl-product").css("text-decoration", "none");
+        row.find(".bl-product").find('span').css("text-decoration", "none");
         row.find(".delete-button").css("display", "inline-block");
         row.find(".bl-label").css("margin", "auto");
         row.find(".bought-button").text("Куплено");
@@ -144,8 +143,9 @@ function buyProduct(element) {
     } else {
         row.find(".bl-minus").css("opacity", "0");
         row.find(".bl-plus").css("opacity", "0");
-        row.find(".bl-product").css("text-decoration", "line-through");
-        row.find(".bl-product").attr("disabled", true);
+        row.find(".bl-product").find('span').css("text-decoration", "line-through");
+        row.find(".bl-product").find('span').css("color", "red");
+        row.find(".bl-product").find('span').attr("disabled", true);
         row.find(".delete-button").css("display", "none");
         row.find(".bl-label").css("margin-right", "35px");
         row.find(".bought-button").text("Не куплено");
