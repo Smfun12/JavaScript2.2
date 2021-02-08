@@ -37,10 +37,10 @@ function addProduct(element) {
 
 function editTitle(element) {
     if ($(element).attr('disabled') != 'disabled') {
-        
+
         element.style.display = "none";
-      input = document.createElement("input");
-        
+        input = document.createElement("input");
+
         text = $(element).text();
 
         input.type = "text";
@@ -51,23 +51,31 @@ function editTitle(element) {
         // Focus it, hook blur to undo
         input.focus();
         $(input).keyup(function() {
-          // $("#tomato").text(input.value);
-        var product1 = $("span").filter(function() {
-            return $(element).text() === $(this).text();
-        });
-        $(product1).next().prev().text(input.value);
-        $(element).text(input.value);
+            // $("#tomato").text(input.value);
+            var product1 = $("span").filter(function() {
+                return $(element).text() === $(this).text();
+            });
+            $(product1).next().prev().text(input.value);
+            $(element).text(input.value);
         });
         input.onblur = function() {
             // Remove the input
             element.parentNode.removeChild(input);
-
+            var product1 = $("span").filter(function() {
+                return $(element).text() === $(this).text();
+            });
             // Update the span
             element.innerHTML = input.value == "" ? "noTitle" : input.value;
 
             // Show the span again
             element.style.display = "";
+            if (input.value == '') {
+                $(product1).next().prev().text("noTitle");
+
+            }
+            
         }
+
     }
 
 }
@@ -162,8 +170,8 @@ function deleteProduct(element) {
     $(element).parent().parent().parent().prev().remove();
     $(element).parent().parent().remove();
     var text = $(element).parent().parent().find(".bl-product").text().replace(/\s/g, '');
-    $("span").filter(function(){
-      return $(this).text() === text;
+    $("span").filter(function() {
+        return $(this).text() === text;
     }).parent().remove();
     var pos = arrayList.indexOf(text);
     arrayList.splice(pos, 1);
