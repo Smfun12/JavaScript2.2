@@ -17,8 +17,9 @@
 <body>
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
     <div class="brand">
+        <span class="d-flex justify-content-center font-weight-light" id="pizza">PIZZA</span>
+         <span class="d-flex justify-content-center font-weight-bold" id="kma">KMA</span>
     <img id="brand" src="assets/images/discount.svg" class="card-img-top" alt="Card image cap">
-        <span class="d-flex justify-content-center">Pizza KMA</span>
     </div>
     <div class="collapse navbar-collapse" id="navbarScroll">
         <ul class="navbar-nav mr-auto my-2 my-lg-0 navbar-nav-scroll" style="max-height: 100px;">
@@ -31,6 +32,88 @@
             <button class="btn btn-outline-warning" id="enter" type="submit">Ввійти</button>
     </div>
 </nav>
+<div class="sidePanel">
+<div class="row">
+    <div class="col">
+        <span id="orders">Замовлення</span>
+        <span class="badge badge-warning badge-pill" style="color: #fff;">3</span>
+    </div>
+    <div class="col text-right">
+        <span id="clear">Очистити замовлення</span>
+    </div>
+<ul class="list-group">
+  <li class="list-group-item">
+      <h3> BBQ(Мала)</h3>
+      <span class="col">
+          <img src="assets/images/size-icon.svg"> 30
+      </span>
+      <span class="col">
+          <img src="assets/images/weight.svg"> 460
+      </span>
+
+        <div class="d-flex justify-content-between">
+            <b>556грн.</b>
+        <button class="minus">-</button>
+        <span>4</span>
+        <button class="plus">+</button>
+            <button class="cancel">X</button>
+            <img class="piza" src="assets/images/pizza_1.jpg">
+        </div>
+  </li>
+  <li class="list-group-item">
+       <h3> BBQ(Мала)</h3>
+      <span class="col">
+          <img src="assets/images/size-icon.svg"> 30
+      </span>
+      <span class="col">
+          <img src="assets/images/weight.svg"> 460
+      </span>
+
+        <div class="d-flex justify-content-between">
+            <b>556грн.</b>
+        <button class="minus">-</button>
+        <span>4</span>
+        <button class="plus">+</button>
+            <button class="cancel">X</button>
+            <img class="piza" src="assets/images/pizza_1.jpg">
+        </div>
+  </li>
+  <li class="list-group-item">
+      <h3> BBQ(Мала)</h3>
+      <span class="col">
+          <img src="assets/images/size-icon.svg"> 30
+      </span>
+      <span class="col">
+          <img src="assets/images/weight.svg"> 460
+      </span>
+
+        <div class="d-flex justify-content-between">
+            <b>556грн.</b>
+        <button class="minus">-</button>
+        <span>4</span>
+        <button class="plus">+</button>
+            <button class="cancel">X</button>
+            <img class="piza" src="assets/images/pizza_1.jpg">
+        </div>
+  </li>
+    <li class="list-group-item" id="process-order">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm">
+                <b>Сума замовлення</b>
+            </div>
+            <div class="col-sm text-right">
+             <b>924 грн</b>
+            </div>
+          </div>
+            <div class="d-flex justify-content-around">
+                        <button class="btn btn-warning" id="order">Замовити</button>
+                    </div>
+        </div>
+  </li>
+</ul>
+  </div>
+    </div>
 <div class="text-center">
     <div class="card-body">
 <div id="cart">
@@ -95,8 +178,8 @@
                         </div>
                     </div>
                     <div class="row justify-content-around">
-                        <button class="btn btn-warning">Button 1</button>
-                        <button class="btn btn-warning">Button 2</button>
+                        <button class="btn btn-warning">Купити</button>
+                        <button class="btn btn-warning">Купити</button>
                     </div>
                 </div>
             </div>
@@ -110,16 +193,44 @@
                     <p class="description">М'ясна піца</p>
 
                     <p>Мисливські ковбаски, ковбаски папероні, шинка, сир домашній, шампінйони, петрушка, оливи</p>
-                    <div class="row">
-                        <div class="col">col</div>
-                        <div class="col">col</div>
+                    <div class="row text-center">
+                        <div class="col">
+                            <img src="assets/images/size-icon.svg"> 30
+                        </div>
+                        <div class="col">
+                            <img src="assets/images/weight.svg"> 40
+                        </div>
                         <div class="w-100"></div>
-                        <div class="col">col</div>
-                        <div class="col">col</div>
+                        <div class="col">
+                            <img src="assets/images/weight.svg"> 460
+                        </div>
+
+                        <div class="col">
+                            <img src="assets/images/weight.svg"> 840
+
+                        </div>
+                        <div class="w-100"></div>
+                        <div class="col">
+                            <h2 class="mt-2"> 139</h2>
+                        </div>
+
+                        <div class="col">
+                            <h2 class="mt-2"> 199</h2>
+
+                        </div>
+                        <div class="w-100"></div>
+                        <div class="col">
+                            <p class="mt-0"> грн.
+                        </div>
+
+                        <div class="col">
+                            <p class="mt-0"> грн.
+
+                        </div>
                     </div>
                     <div class="d-flex justify-content-around">
-                        <button class="btn btn-warning">Button 3</button>
-                        <button class="btn btn-warning">Button 4</button>
+                        <button class="btn btn-warning">Купити</button>
+                        <button class="btn btn-warning">Купити</button>
                     </div>
                 </div>
             </div>
@@ -132,16 +243,44 @@
                     <p class="description">М'ясна піца</p>
 
                     <p>Вітчина, куриця копчена, сир моцарелла, ананаси, кукурудза, петрушка, соус томатний</p>
-                    <div class="row">
-                        <div class="col">col</div>
-                        <div class="col">col</div>
+                    <div class="row text-center">
+                        <div class="col">
+                            <img src="assets/images/size-icon.svg"> 30
+                        </div>
+                        <div class="col">
+                            <img src="assets/images/weight.svg"> 40
+                        </div>
                         <div class="w-100"></div>
-                        <div class="col">col</div>
-                        <div class="col">col</div>
+                        <div class="col">
+                            <img src="assets/images/weight.svg"> 430
+                        </div>
+
+                        <div class="col">
+                            <img src="assets/images/weight.svg"> 780
+
+                        </div>
+                        <div class="w-100"></div>
+                        <div class="col">
+                            <h2 class="mt-2"> 115</h2>
+                        </div>
+
+                        <div class="col">
+                            <h2 class="mt-2"> 179</h2>
+
+                        </div>
+                        <div class="w-100"></div>
+                        <div class="col">
+                            <p class="mt-0"> грн.
+                        </div>
+
+                        <div class="col">
+                            <p class="mt-0"> грн.
+
+                        </div>
                     </div>
                     <div class="d-flex justify-content-around">
-                        <button class="btn btn-warning">Button 5</button>
-                        <button class="btn btn-warning">Button 6</button>
+                        <button class="btn btn-warning">Купити</button>
+                        <button class="btn btn-warning">Купити</button>
                     </div>
                 </div>
             </div>
@@ -154,15 +293,25 @@
 
                     <p>Криветки тигрові, мідії, ікра червона, філе червоної риби, сир моцарелла, оливкова олія, вершки</p>
                     <div class="row text-center">
-                        <div class="col">col</div>
-                        <div class="col">col</div>
+                        <div class="col">
+                            <img src="assets/images/weight.svg"> 40
+                        </div>
                         <div class="w-100"></div>
-                        <div class="col">col</div>
-                        <div class="col">col</div>
+                        <div class="col">
+                            <img src="assets/images/weight.svg"> 845
+                        </div>
+
+                        <div class="w-100"></div>
+                        <div class="col">
+                            <h2 class="mt-2"> 399</h2>
+                        </div>
+                        <div class="w-100"></div>
+                        <div class="col">
+                            <p class="mt-0"> грн.
+                        </div>
                     </div>
                     <div class="d-flex justify-content-around">
-                        <button class="btn btn-warning">Button 7</button>
-                        <button class="btn btn-warning">Button 8</button>
+                        <button class="btn btn-warning">Купити</button>
                     </div>
                 </div>
             </div>
@@ -174,21 +323,50 @@
                     <p class="description">М'ясна піца</p>
 
                     <p>Ікра червона, лосось копчений, сир моцарелла, оливкова олія, вершки</p>
-                    <div class="row">
-                        <div class="col">col</div>
-                        <div class="col">col</div>
+                    <div class="row text-center">
+                        <div class="col">
+                            <img src="assets/images/size-icon.svg"> 30
+                        </div>
+                        <div class="col">
+                            <img src="assets/images/weight.svg"> 40
+                        </div>
                         <div class="w-100"></div>
-                        <div class="col">col</div>
-                        <div class="col">col</div>
+                        <div class="col">
+                            <img src="assets/images/weight.svg"> 370
+                        </div>
+
+                        <div class="col">
+                            <img src="assets/images/weight.svg"> 660
+
+                        </div>
+                        <div class="w-100"></div>
+                        <div class="col">
+                            <h2 class="mt-2"> 99</h2>
+                        </div>
+
+                        <div class="col">
+                            <h2 class="mt-2"> 169</h2>
+
+                        </div>
+                        <div class="w-100"></div>
+                        <div class="col">
+                            <p class="mt-0"> грн.
+                        </div>
+
+                        <div class="col">
+                            <p class="mt-0"> грн.
+
+                        </div>
                     </div>
                     <p class="d-flex justify-content-around">
-                        <button class="btn btn-warning">Button 9</button>
-                        <button class="btn btn-warning">Button 10</button>
+                        <button class="btn btn-warning">Купити</button>
+                        <button class="btn btn-warning">Купити</button>
                     </p>
                 </div>
             </div>
         </div>
     </div>
+
 </div>
 <div id="badge">
     <img src="assets/images/discount.svg" alt="Pizza">
