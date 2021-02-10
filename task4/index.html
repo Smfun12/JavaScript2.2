@@ -24,17 +24,20 @@
     <div class="collapse navbar-collapse" id="navbarScroll">
         <ul class="navbar-nav mr-auto my-2 my-lg-0 navbar-nav-scroll" style="max-height: 100px;">
             <li class="nav-item">
-                <span class="nav-link">(044) 222 5 222<span class="sr-only">(current)</span></span>
+                <span class="nav-link" id="number">(044) 222 5 222<span class="sr-only">(current)</span></span>
                 <span class="nav-link">24 години/ 7 днів на тиждень</span>
                 <span class="nav-link">Безкоштовна доставка піци</span>
             </li>
         </ul>
             <button class="btn btn-outline-warning" id="enter" type="submit">Ввійти</button>
     </div>
+    <div>
+    <hr class="align-text-bottom">
+    </div>
 </nav>
 <div class="sidePanel">
 <div class="row">
-    <div class="col">
+    <div class="col text-center">
         <span id="orders">Замовлення</span>
         <span class="badge badge-warning badge-pill" style="color: #fff;">3</span>
     </div>
@@ -96,7 +99,11 @@
             <img class="piza" src="assets/images/pizza_1.jpg">
         </div>
   </li>
-    <li class="list-group-item" id="process-order">
+    </ul>
+
+
+  </div>
+    <div class="list-group-item" id="process-order">
         <div class="container">
           <div class="row">
             <div class="col-sm">
@@ -110,10 +117,8 @@
                         <button class="btn btn-warning" id="order">Замовити</button>
                     </div>
         </div>
-  </li>
-</ul>
   </div>
-    </div>
+</div>
 <div class="text-center">
     <div class="card-body">
 <div id="cart">
@@ -135,6 +140,9 @@
 <div class="container">
     <div class="row" id="pizza_list">
         <div class="col-sm-6 col-md-4">
+            <div class="hot-offer">
+                <b class="new">Нова</b>
+            </div>
             <div class="img-thumbnail pizza-card">
                 <img src="assets/images/pizza_1.jpg">
 
@@ -186,6 +194,9 @@
         </div>
 
         <div class="col-sm-6 col-md-4">
+            <div class="most-popular">
+                <b class="new">Популярна</b>
+            </div>
             <div class="img-thumbnail mb-2 pizza-card">
                 <img src="assets/images/pizza_2.jpg">
 
