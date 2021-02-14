@@ -18,18 +18,21 @@
   top:-3%;
   left:@left;
   font-size: @size;
+  z-index: 1;
 }
 
 body{
   background-color: @backgroundColor;
 }
 .fixed-top{
-width: 80%;
+width: 75%;
 height: 70px;
 }
 #navbarScroll{
  border-bottom: 2px solid gray;
  margin-left: 10px;
+ #free-deliver{
+ }
 }
 #number{
 padding-left: 0;}
@@ -79,8 +82,9 @@ color: red;
 
 #cart{
   margin-top: 70px;
-  #all{
+  .all{
     font-size: 35px;
+    margin-left: -30%;
   }
 
   span{
@@ -103,6 +107,9 @@ color: red;
   button{
     background-color: @buttonColor;
     color: white;
+  }
+  #pizza_list{
+    width: 80%;
   }
 }
 .nav-item{

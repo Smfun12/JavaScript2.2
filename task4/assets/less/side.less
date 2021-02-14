@@ -2,29 +2,33 @@
 .sidePanel{
     background-color: #E9E9E9;
      height: 100%;
-  width: 380px;
-  position: fixed;
-  top: 0;
-  right: 0;
-  overflow-x: hidden;
-  padding-top: 20px;
+     width: 25%;
+     min-width: 256px;
+     position: fixed;
+     right: 0;
+     padding-top: 20px;
 
-        #clear{
-        font-size: 12px;
+      #clear{
+        font-size: 10px;
         color: gray;
-        margin-right: 15px;
-        margin-top:5px;
+        margin-left:40px;
+      }
+    .order{
+    margin-left: 5px;
     }
-
     #orders{
-        margin-left: 30px;
+        font-size: 14px;
     }
     .list-group{
     width: 100%;
-    padding-left: 15px;
     margin-top: 15px;
     }
-    h3{
+    .card-text{
+        margin: 50px;
+    }
+    .info{
+    width: 10px;}
+    h5{
     color: @buttonColor;
     }
     .col{
@@ -33,6 +37,7 @@
     }
     b{
     margin-top:10px;
+    font-size: 15px;
     }
     .col-sm{
     padding: 0;
@@ -43,11 +48,17 @@
 	box-shadow: 0 3px #E13E3E;
 	border-radius: 50%;
     border: none;
-	font-size: 17px;
+	font-size: 10px;
 	font-weight: bold;
 	text-align: center;
-	width: 40px;
-    height: 40px;
+	width: 20px;
+    height: 20px;
+    margin-top: 10px;
+    }
+
+    .label{
+    margin-top:10px;
+    font-size: 15px;
     }
     .plus{
      background: #4CAF50;
@@ -56,33 +67,36 @@
     border: none;
     color: #fff;
     cursor: pointer;
-    font-size: 17px;
-    width: 40px;
-    height: 40px;
+    font-size: 10px;
+    width: 20px;
+    height: 20px;
+    margin-top: 10px;
     }
     span{
        color: black;
        font-weight: bold;
+       font-size: 10px;
        margin-top: 10px;
     }
     .cancel{
         border: none;
         background-color: #E9E9E9;
         color: @buttonColor;
+        font-size: 10px;
         font-weight: bold;
         border-radius: 50%;
-         width: 40px;
-        height: 40px;
+        width: 20px;
+        height: 20px;
+        margin-top: 10px;
 
     }
     .piza{
     width: 50px;
     }
     #process-order{
-
   position: absolute;
   width: 100%;
-  bottom: 10px;
+  bottom: 0;
     }
     #order{
     width: 100%;
