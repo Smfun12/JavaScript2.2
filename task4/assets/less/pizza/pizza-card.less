@@ -1,10 +1,10 @@
 @meatPizza: gray;
-
+@cardWidth: 250px;
 .pizza-card {
   margin-bottom: 30px;
   width: min-content;
   img {
-    max-width: 240px;
+    max-width: @cardWidth*0.96;
   }
 
   h4 {
@@ -18,5 +18,27 @@
   }
   .description{
     color: @meatPizza;
+  }
+}
+
+@media(max-width: 1200px){
+    .pizza-card {
+  img {
+    max-width: @cardWidth*0.79;
+  }
+  }
+}
+@media(max-width: 1000px){
+    .pizza-card {
+  img {
+  margin-left: 10px;
+  }
+  }
+}
+@media(max-width: 790px){
+    .pizza-card {
+  img {
+    max-width: @cardWidth*0.64;
+  }
   }
 }

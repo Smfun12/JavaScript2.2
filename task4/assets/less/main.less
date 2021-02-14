@@ -26,14 +26,24 @@ body{
 }
 .fixed-top{
 width: 75%;
-height: 70px;
 }
 #navbarScroll{
  border-bottom: 2px solid gray;
  margin-left: 10px;
- #free-deliver{
- }
+
 }
+#navbar-row{
+ margin-left: 10px;
+
+}
+hr{
+    border: 1px solid gray;
+    }
+#pizza-navbar{
+    color: white;
+    margin-left: 10px;
+}
+
 #number{
 padding-left: 0;}
 
@@ -56,7 +66,7 @@ margin-bottom: 2px;
   #brand {
     transform: rotate(180deg);
     width: 110px;
-    margin-top: -18px;
+    margin-top: -20px;
     height: 40px;
   }
 
@@ -78,6 +88,8 @@ color: red;
 #enter{
   background-color: @buttonColor;
   color: white;
+  position:absolute;
+  right: 5px;
 }
 
 #cart{
@@ -143,5 +155,27 @@ img{
     transform: translate(-50%, -50%);
     font-size: 15px;
     font-weight: bold;
+  }
+}
+
+@media(max-width: 1100px){
+    #free-deliver{
+    display:none;
+    }
+    .fixed-top{
+    width: 65%;
+}
+}
+@media(max-width: 900px){
+    #time{
+    display:none;}
+    .pizza-card {
+  img {
+    max-width: @cardWidth*0.76;
+  }
+
+}
+ .hot-offer{
+    .button-builder(red,20px,40%);
   }
 }

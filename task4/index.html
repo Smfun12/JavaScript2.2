@@ -22,18 +22,18 @@
         <span class="d-flex justify-content-center font-weight-bold" id="kma">KMA</span>
         <img id="brand" src="assets/images/discount.svg" class="card-img-top" alt="Card image cap">
     </div>
-    <div class="collapse navbar-collapse" id="navbarScroll">
-        <ul class="navbar-nav mr-auto my-2 my-lg-0 navbar-nav-scroll" style="max-height: 100px;">
+    <div class="row-column" id="navbar-row">
+            <ul class="navbar-nav mr-auto my-2 my-lg-0 navbar-nav-scroll" id="navbarScroll" style="max-height: 100px;">
             <li class="nav-item">
                 <span class="nav-link" id="number">(044) 222 5 222<span class="sr-only">(current)</span></span>
-                <span class="nav-link">24 години/ 7 днів на тиждень</span>
+                <span class="nav-link" id="time">24 години/ 7 днів на тиждень</span>
                 <span class="nav-link" id="free-deliver">Безкоштовна доставка піци</span>
             </li>
-        </ul>
         <button class="btn btn-outline-warning" id="enter" type="submit">Ввійти</button>
-    </div>
-    <div>
-        <hr class="align-text-bottom">
+        </ul>
+
+<!--            <hr>-->
+            <span id="pizza-navbar">Піца</span>
     </div>
 </nav>
 <div class="sidePanel">
@@ -136,11 +136,11 @@
         </div>
     </div>
     <div class="row" id="pizza_list">
-        <div class="col-sm-6 col-md-4">
+        <div class="col-sm-12 col-md-6 col-lg-4">
             <div class="hot-offer">
                 <b class="new">Нова</b>
             </div>
-            <div class="img-thumbnail pizza-card">
+            <div class="card pizza-card">
                 <img src="assets/images/pizza_1.jpg">
 
                 <div class="caption">
@@ -190,11 +190,11 @@
             </div>
         </div>
 
-        <div class="col-sm-6 col-md-4">
+        <div class="col-sm-12 col-md-6 col-lg-4">
             <div class="most-popular">
                 <b class="new">Популярна</b>
             </div>
-            <div class="img-thumbnail mb-2 pizza-card">
+            <div class="card mb-2 pizza-card">
                 <img src="assets/images/pizza_2.jpg">
 
                 <div class="caption"><h4>BBQ</h4>
@@ -244,8 +244,8 @@
             </div>
         </div>
 
-        <div class="col-sm-6 col-md-4">
-            <div class="img-thumbnail pizza-card">
+        <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="card pizza-card">
                 <img src="assets/images/pizza_3.jpg">
                 <div class="caption"><h4>Міксовий поло</h4>
                     <p class="description">М'ясна піца</p>
@@ -293,8 +293,8 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-6 col-md-4">
-            <div class="img-thumbnail pizza-card">
+        <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="card pizza-card">
                 <img src="assets/images/pizza_4.jpg">
                 <div class="caption"><h4>Дольче Маре</h4>
                     <p class="description">М'ясна піца</p>
@@ -325,8 +325,8 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-6 col-md-4">
-            <div class="img-thumbnail pizza-card">
+        <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="card pizza-card">
                 <img src="assets/images/pizza_5.jpg">
                 <div class="caption"><h4>Россо Густо</h4>
                     <p class="description">М'ясна піца</p>
