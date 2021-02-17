@@ -16,7 +16,7 @@
   text-align:center;
   color: #fff;
   top:-3%;
-  left:@left;
+  left:0;
   font-size: @size;
   z-index: 1;
 }
@@ -25,19 +25,24 @@ body{
   background-color: @backgroundColor;
 }
 .fixed-top{
-width: 75%;
+padding-top:0;
+width: 85%;
+z-index:5;
 }
 #navbarScroll{
- border-bottom: 2px solid gray;
  margin-left: 10px;
-
+width: 85%;
 }
 #navbar-row{
  margin-left: 10px;
+ width: 85%;
 
 }
 hr{
     border: 1px solid gray;
+    width: 10000px;
+    margin:0;
+    margin-left: 10px;
     }
 #pizza-navbar{
     color: white;
@@ -51,7 +56,7 @@ padding-left: 0;}
 .brand {
 height: 70px;
 background-color: @buttonColor;
-margin-bottom: 2px;
+margin-top: -12px;
   span {
     text-align: center;
     color: white;
@@ -60,6 +65,7 @@ margin-bottom: 2px;
   }
   #pizza{
   margin-top:5px;
+  padding-top: 10px;
   }
   #kma{
   }
@@ -72,10 +78,10 @@ margin-bottom: 2px;
 
 }
  .hot-offer{
-    .button-builder(red,20px,70%);
+    .button-builder(red,20px,0%);
   }
    .most-popular{
-    .button-builder(green,20px,55%);
+    .button-builder(green,20px,0%);
   }
   .new{
     padding: 5px;
@@ -88,9 +94,10 @@ color: red;
 #enter{
   background-color: @buttonColor;
   color: white;
-  position:absolute;
-  right: 5px;
 }
+
+.col-lg-4{
+padding: 0;}
 
 #cart{
   margin-top: 70px;
@@ -142,8 +149,7 @@ img{
 
   }
   hr{
-    margin-top: 0;
-    margin-bottom: 0;
+    margin:0;
     border-top: 1px dashed red;
     width: 100%;
   }
@@ -162,9 +168,6 @@ img{
     #free-deliver{
     display:none;
     }
-    .fixed-top{
-    width: 65%;
-}
 }
 @media(max-width: 900px){
     #time{
@@ -178,4 +181,9 @@ img{
  .hot-offer{
     .button-builder(red,20px,40%);
   }
+}
+@media(max-width: 600px){
+ .card-text{
+    display: none;
+ }
 }
