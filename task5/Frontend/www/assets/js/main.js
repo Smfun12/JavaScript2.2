@@ -343,7 +343,8 @@ function filterPizza(filter) {
 
 function initialiseMenu() {
     //Показуємо усі піци
-    showPizzaList(Pizza_List)
+    console.log('hello');
+    showPizzaList(Pizza_List);
 }
 
 exports.filterPizza = filterPizza;

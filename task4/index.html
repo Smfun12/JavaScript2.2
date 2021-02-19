@@ -16,24 +16,28 @@
 
 </head>
 <body>
-<nav class="navbar fixed-top navbar-expand navbar-dark bg-dark">
-    <div class="brand">
-        <span class="d-flex justify-content-center font-weight-light" id="pizza">PIZZA</span>
-        <span class="d-flex justify-content-center font-weight-bold" id="kma">KMA</span>
-        <img id="brand" src="assets/images/discount.svg" class="card-img-top" alt="Card image cap">
+<nav class="navbar sticky-top p-0 navbar-expand">
+    <div class="logo">
+        <span class="pizza-logo">PIZZA</span>
+        <span class="kma">KMA</span>
+        <img style="width: 110px; transform: rotate(180deg); margin-top: 15px; margin-left: -1px;" src="assets/images/discount.svg">
     </div>
-    <div class="row-column" id="navbar-row">
-            <ul class="navbar-nav mr-auto my-2 my-lg-0 navbar-nav-scroll" id="navbarScroll" style="max-height: 100px;">
-            <li class="nav-item">
-                <span class="nav-link" id="number">(044) 222 5 222<span class="sr-only">(current)</span></span>
-                <span class="nav-link" id="time">24 години/ 7 днів на тиждень</span>
-                <span class="nav-link" id="free-deliver">Безкоштовна доставка піци</span>
-            </li>
-        <button class="btn btn-outline-warning" id="enter" type="submit">Ввійти</button>
-        </ul>
-
-            <hr>
-            <span id="pizza-navbar">Піца</span>
+    <div class="navbar-content">
+        <div class="top d-flex">
+            <div class="navbar-nav mr-auto">
+                <span class="nav-text">(044) 222 5 222</span>
+                <span class="nav-text d-none d-md-block" id="time">24 години/7 днів на тиждень</span>
+                <span class="nav-text d-none d-lg-block">Безплатне доставляння піци</span>
+            </div>
+            <div class="btn btn-warning d-none d-sm-block">Ввійти</div>
+        </div>
+        <hr class="line">
+        <div class="bottom d-flex">
+            <div class="navbar-nav mr-auto">
+                <span class="nav-text d-none d-sm-block mr-auto">Піца</span>
+            </div>
+            <div class="btn btn-warning d-block d-sm-none">Ввійти</div>
+        </div>
     </div>
 </nav>
 <div class="sidePanel">
