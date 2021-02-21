@@ -22,7 +22,7 @@ var $cart = $(".list-group");
 function addToCart(pizza, size) {
     //Додавання однієї піци в кошик покупок
     //Приклад реалізації, можна робити будь-яким іншим способом
-    if (!containsObject(pizza,Cart)){
+    if (!containsObject(pizza,size,Cart)){
     Cart.push({
         pizza: pizza,
         size: size,
@@ -37,10 +37,10 @@ function addToCart(pizza, size) {
     updateCart();
 }
 
-function containsObject(obj, list) {
+function containsObject(obj,obj2, list) {
     let i;
     for (i = 0; i < list.length; i++) {
-        if (list[i].pizza === obj) {
+        if (list[i].pizza === obj && list[i].size === obj2) {
             list[i].quantity++;
             return true;
         }
@@ -51,7 +51,6 @@ function containsObject(obj, list) {
 
 function removeFromCart(cart_item) {
     //Видалити піцу з кошика
-    //TODO: треба зробити
 
     let number = Cart.indexOf(cart_item);
     Cart.splice(number,1);
@@ -62,7 +61,6 @@ function removeFromCart(cart_item) {
 
 function clearAll() {
     //Видалити піцу з кошика
-    //TODO: треба зробити
     Cart.length = 0;
     sum = 0;
     //Після видалення оновити відображення
@@ -72,8 +70,7 @@ function clearAll() {
 function initialiseCart() {
     //Фукнція віпрацьвуватиме при завантаженні сторінки
     //Тут можна наприклад, зчитати вміст корзини який збережено в Local Storage то показати його
-    //TODO: ...
-    Cart = LocalStorage.getPizzas();
+        Cart = LocalStorage.getPizzas();
     updateCart();
 }
 
@@ -106,7 +103,6 @@ function updateCart() {
         var html_code = Templates.PizzaCart_OneItem(cart_item);
 
         var $node = $(html_code);
-
         $node.find(".plus").click(function(){
             //Збільшуємо кількість замовлених піц
             cart_item.quantity += 1;

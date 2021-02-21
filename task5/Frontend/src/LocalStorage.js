@@ -2,6 +2,7 @@ var PizzaCard = require('./pizza/PizzaCart');
 
 
 function writePizzas(){
+    localStorage.clear();
     let Cart = PizzaCard.getPizzaInCart();
     for (let i = 0; i < Cart.length; i++) {
         localStorage.setItem(i + '', JSON.stringify(Cart[i]));
