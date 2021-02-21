@@ -16,24 +16,28 @@
 
 </head>
 <body>
-<nav class="navbar fixed-top navbar-expand navbar-dark bg-dark">
-    <div class="brand">
-        <span class="d-flex justify-content-center font-weight-light" id="pizza">PIZZA</span>
-        <span class="d-flex justify-content-center font-weight-bold" id="kma">KMA</span>
-        <img id="brand" src="assets/images/discount.svg" class="card-img-top" alt="Card image cap">
+<nav class="navbar sticky-top p-0 navbar-expand">
+    <div class="logo">
+        <span class="pizza-logo">PIZZA</span>
+        <span class="kma">KMA</span>
+        <img style="width: 110px; transform: rotate(180deg); margin-top: 15px; margin-left: -1px;" src="assets/images/discount.svg">
     </div>
-    <div class="row-column" id="navbar-row">
-            <ul class="navbar-nav mr-auto my-2 my-lg-0 navbar-nav-scroll" id="navbarScroll" style="max-height: 100px;">
-            <li class="nav-item">
-                <span class="nav-link" id="number">(044) 222 5 222<span class="sr-only">(current)</span></span>
-                <span class="nav-link" id="time">24 години/ 7 днів на тиждень</span>
-                <span class="nav-link" id="free-deliver">Безкоштовна доставка піци</span>
-            </li>
-        <button class="btn btn-outline-warning" id="enter" onclick="initialiseMenu()" type="submit">Ввійти</button>
-        </ul>
-
-            <hr>
-            <span id="pizza-navbar">Піца</span>
+    <div class="navbar-content">
+        <div class="top d-flex">
+            <div class="navbar-nav mr-auto">
+                <span class="nav-text">(044) 222 5 222</span>
+                <span class="nav-text d-none d-md-block" id="time">24 години/7 днів на тиждень</span>
+                <span class="nav-text d-none d-lg-block">Безплатне доставляння піци</span>
+            </div>
+            <div class="btn btn-warning d-none d-sm-block">Ввійти</div>
+        </div>
+        <hr class="line">
+        <div class="bottom d-flex">
+            <div class="navbar-nav mr-auto">
+                <span class="nav-text d-none d-sm-block mr-auto">Піца</span>
+            </div>
+            <div class="btn btn-warning d-block d-sm-none">Ввійти</div>
+        </div>
     </div>
 </nav>
 <div class="sidePanel">
@@ -41,7 +45,7 @@
         <div class="row">
             <div class="order">
                 <span id="orders">Замовлення</span>
-                <span class="badge badge-warning badge-pill" style="color: #fff;">3</span>
+                <span class="badge badge-warning badge-pill" id="total-orders" style="color: #fff;">0</span>
 
                 <span id="clear">Очистити замовлення</span>
             </div>
@@ -100,20 +104,22 @@
                         <img class="piza" src="assets/images/pizza_1.jpg">
                     </div>
                 </li>
-                <li class="list-group-item" id="process-order">
-                    <div class="row">
-                        <div class="col-sm">
-                            <b>Сума замовлення</b>
-                        </div>
-                        <div class="col-sm text-right">
-                            <b>924 грн</b>
-                        </div>
-                    </div>
-                    <div class="d-flex justify-content-around">
-                        <button class="btn btn-warning" id="order">Замовити</button>
-                    </div>
-                </li>
+
             </ul>
+            <div class="list-group-item" id="process-order">
+                <div class="row">
+                    <div class="col-sm">
+                        <b>Сума замовлення</b>
+                    </div>
+                    <div class="col-sm text-right">
+                        <b id="total_sum">0</b>
+                        <b>грн</b>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-around">
+                    <button class="btn btn-warning" id="order">Замовити</button>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -124,12 +130,12 @@
                 <span id="all-pizza" class="badge badge-warning badge-pill">8</span>
             </p>
             <p class="card-text text-center all">
-                <button class="btn btn-warning">Усі</button>
-                <button class="btn btn-warning">М'ясні</button>
-                <button class="btn btn-warning">З ананасами</button>
-                <button class="btn btn-warning">З грибами</button>
-                <button class="btn btn-warning">З морепродуктами</button>
-                <button class="btn btn-warning">Вега</button>
+                <button class="btn btn-warning" id="all">Усі</button>
+                <button class="btn btn-warning" id="meat">М'ясні</button>
+                <button class="btn btn-warning" id="pineapple">З ананасами</button>
+                <button class="btn btn-warning" id="mushroom">З грибами</button>
+                <button class="btn btn-warning" id="seafood">З морепродуктами</button>
+                <button class="btn btn-warning" id="vega">Вега</button>
             </p>
         </div>
     </div>
@@ -373,7 +379,6 @@
             </div>
         </div>
     </div>
-
 </div>
 <div id="badge">
     <img src="assets/images/discount.svg" alt="Pizza">
