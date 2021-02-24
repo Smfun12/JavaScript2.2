@@ -43,7 +43,6 @@ function startServer(port) {
 
     //Налаштовуємо сторінки
     configureEndpoints(app);
-
     //Запуск додатка за вказаним портом
     app.listen(port, function () {
         console.log('My Application Running on http://localhost:'+port+'/');

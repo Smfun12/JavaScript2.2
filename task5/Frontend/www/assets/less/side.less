@@ -9,7 +9,6 @@
      top: 0;
      padding-top: 20px;
      z-index: 19;
-
       #clear{
         font-size: 10px;
         color: gray;
@@ -19,19 +18,20 @@
     .order{
     margin-left: 5px;
     }
+    .newclass{
+    height: ~"calc(100% - 180px)";
+    position: fixed;
+    }
     #orders{
         font-size: 14px;
     }
     .list-group{
     width: 100%;
-    height:700px;
+    height: 100%;
     margin-top: 15px;
-    overflow:hidden;
+    overflow-x:hidden;
     overflow-y:scroll;
     }
-    .list-group::-webkit-scrollbar {
-    display: none;
-}
     .card-text{
         margin: 50px;
     }
@@ -111,8 +111,8 @@
     bottom: 10px;
     }
     #process-order{
-  position: absolute;
-  width: 100%;
+  position: fixed;
+  width: 270px;
   bottom: 0;
     }
     #order{

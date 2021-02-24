@@ -31,6 +31,14 @@ function backendPost(url, data, callback) {
     })
 }
 
+backendGet(function(error, data){
+    if (error){
+    console.log('error');
+    }
+    console.log(data);
+});
+
+
 exports.getPizzaList = function(callback) {
     backendGet("/api/get-pizza-list/", callback);
 };

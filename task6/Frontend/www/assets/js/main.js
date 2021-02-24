@@ -1,7 +1,31 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 var PizzaCard = require('./pizza/PizzaCart');
 
+$("#orders").click(function(){
+    console.log('hello');
+});
+$("#exampleInputName1").keyup(function(){
+    if (this.value.length>4){
+        $("#name").css("color","green");
+    } else {
+        $("#name").css("color","red");
+    }
+});
 
+$("#exampleInputPhone1").keyup(function(){
+    if (this.value.length>4){
+        $("#phone").css("color","green");
+    } else {
+        $("#phone").css("color","red");
+    }
+});
+$("#exampleInputAddress1").keyup(function(){
+    if (this.value.length>4){
+        $("#address").css("color","green");
+    } else {
+        $("#address").css("color","red");
+    }
+});
 function writePizzas(){
     localStorage.clear();
     let Cart = PizzaCard.getPizzaInCart();
@@ -230,6 +254,11 @@ $(function(){
 
 
 });
+
+$("#submit order").click(function (){
+    console.log('hello');
+});
+
 },{"./Pizza_List":2,"./pizza/PizzaCart":5,"./pizza/PizzaMenu":6}],5:[function(require,module,exports){
 /**
  * Created by chaika on 02.02.16.
