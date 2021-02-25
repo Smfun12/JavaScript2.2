@@ -13,7 +13,3 @@ $(function(){
 
 
 });
-
-$("#submit order").click(function (){
-    console.log('hello');
-});

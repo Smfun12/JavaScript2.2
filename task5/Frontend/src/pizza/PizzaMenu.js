@@ -36,7 +36,7 @@ $("#vega").click(function () {
 function showPizzaList(list) {
     //Очищаємо старі піци в кошику
     $pizza_list.html("");
-
+    $(".badge").text(list.length);
     //Онволення однієї піци
     function showOnePizza(pizza) {
         var html_code = Templates.PizzaMenu_OneItem({pizza: pizza});
@@ -52,7 +52,6 @@ function showPizzaList(list) {
 
         $pizza_list.append($node);
     }
-
     list.forEach(showOnePizza);
 }
 

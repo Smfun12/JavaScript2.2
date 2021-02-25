@@ -1,20 +1,21 @@
 <% include common/header.ejs %>
 
 <div class="container">
-
     <h3>1.Контактні дані</h3>
-    <form action="/api/create-order" method='post'>
     <div class="form-group">
     <span for="exampleInputEmail1" id="name">Ім'я</span>
     <input type="text" name="name" class="form-control" id="exampleInputName1" placeholder="Ім'я та прізвище" required>
+        <label id="nameError"></label>
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1" id="phone">Телефон</label>
     <input type="text" name="phone" class="form-control" id="exampleInputPhone1" placeholder="+3807894532" required>
+      <label id="phoneError"></label>
   </div>
    <div class="form-group">
     <label for="exampleInputAddress1" id="address">Адреса</label>
     <input type="text" name="address" class="form-control" id="exampleInputAddress1" placeholder="м.Київ" required>
+       <label id="addressError"></label>
   </div>
   <div class="order-info">
   <b>Інформація про замовлення</b>
@@ -22,9 +23,8 @@
   <span><b>Приблизний час доставки:</b> невідомий</span>
   <br/>
   <span><b>Адреса доставки</b> невідома</span>
-  <button type="submit" class="btn btn-warning" id="submit order">Next ></button>
+  <button type="submit" class="btn btn-warning" id="submit-order">Next ></button>
     </div>
-  </form>
 </div>
 
 

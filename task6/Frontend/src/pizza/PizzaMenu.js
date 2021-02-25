@@ -4,6 +4,7 @@
 var Templates = require('../Templates');
 var PizzaCart = require('./PizzaCart');
 var Pizza_List = require('../Pizza_List');
+var API = require('../API');
 
 //HTML едемент куди будуть додаватися піци
 var $pizza_list = $("#pizza_list");
@@ -66,15 +67,14 @@ function filterPizza(filter) {
 
             pizza_shown.push(pizza);
         });
-    }
-    else if (filter === 'vega'){
+    } else if (filter === 'vega') {
         Pizza_List.forEach(function (pizza) {
             //Якщо піка відповідає фільтру
-            if (!pizza.content.meat && !pizza.content.ocean){
-            pizza_shown.push(pizza);}
+            if (!pizza.content.meat && !pizza.content.ocean) {
+                pizza_shown.push(pizza);
+            }
         });
-    }
-    else {
+    } else {
         Pizza_List.forEach(function (pizza) {
             //Якщо піка відповідає фільтру
 
@@ -83,7 +83,6 @@ function filterPizza(filter) {
                     pizza_shown.push(pizza);
                 }
             }
-            //TODO: зробити фільтри
         });
     }
 
@@ -93,8 +92,87 @@ function filterPizza(filter) {
 
 function initialiseMenu() {
     //Показуємо усі піци
-    showPizzaList(Pizza_List);
+    API.getPizzaList(initPizzaList);
 }
+
+function initPizzaList(error, data) {
+    if (error == null) {
+        Pizza_List = data;
+        showPizzaList(Pizza_List);
+    }
+}
+
+function sendToBack(error, data) {
+
+}
+
+$("#orders").click(function(){
+    console.log('hello');
+});
+$("#exampleInputName1").keyup(function(){
+    if (this.value.match("^(?=.{8,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$")){
+        $("#name").css("color","green");
+        $("#nameError").text("");
+        document.getElementById("submit-order").disabled = false;
+
+    } else {
+        $("#name").css("color","red");
+        $("#nameError").text("ENTER VALID NAME");
+        $("#nameError").css("color","red");
+        document.getElementById("submit-order").disabled = true;
+
+
+    }
+});
+
+$("#exampleInputPhone1").keyup(function(){
+    if (!this.value.match("^([0|\\+[0-9]{1,5})?([7-9][0-9]{9})$")){
+        $("#phone").css("color","red");
+        $("#phoneError").text("ENTER VALID PHONE");
+        $("#phoneError").css("color","red");
+
+        document.getElementById("submit-order").disabled = true;
+
+    }
+    else {
+        $("#phone").css("color","green");
+        $("#phoneError").text("");
+        document.getElementById("submit-order").disabled = false;
+
+    }
+});
+$("#exampleInputAddress1").keyup(function(){
+    if (this.value.match("^\\d+\\s[A-z]+\\s[A-z]+")){
+        $("#address").css("color","green");
+        $("#addressError").text("");
+
+        document.getElementById("submit-order").disabled = false;
+
+    } else {
+        $("#address").css("color","red");
+        $("#addressError").text("ENTER VALID ADDRESS");
+        $("#addressError").css("color","red");
+
+        document.getElementById("submit-order").disabled = true;
+    }
+});
+
+$("#submit-order").click(function () {
+    var phoneNumber = $("#exampleInputPhone1").val();
+    var login = $("#exampleInputName1").val();
+    var address = $("#exampleInputAddress1").val();
+    if (phoneNumber === "" || login === "" || address === ""){
+        return;
+    }
+    console.log(phoneNumber,login,address);
+    var order_info = {
+        phoneNumber: phoneNumber,
+        login: login,
+        address: address,
+        pizzas: PizzaCart.getPizzaInCart()
+    }
+    API.createOrder(order_info, sendToBack);
+});
 
 exports.filterPizza = filterPizza;
 exports.initialiseMenu = initialiseMenu;

@@ -214,7 +214,7 @@ exports.PizzaMenu_OneItem = ejs.compile("<%\r\n\r\nfunction getIngredientsArray(
 
 exports.PizzaCart_OneItem = ejs.compile("<li class=\"list-group-item\">\r\n    <h5><%= pizza.title %> (<%= size %>)</h5>\r\n    <span class=\"col\">\r\n          <img class=\"info\" src=\"assets/images/size-icon.svg\">\r\n        <%= pizza[size].size%>\r\n      </span>\r\n    <span class=\"col\">\r\n          <img class=\"info\" src=\"assets/images/weight.svg\">\r\n         <%= pizza[size].weight%>\r\n      </span>\r\n    <div class=\"d-flex justify-content-around\">\r\n    <b> <%= pizza[size].price %> грн.</b>\r\n        <button class=\"btn btn-danger minus\">-</button>\r\n        <span class=\"label label-default\"><%= quantity %></span>\r\n        <button class=\"btn btn-success plus\">+</button>\r\n        <button class=\"cancel\">X</button>\r\n        <img class=\"piza\" src=\"<%= pizza.icon%>\">\r\n    </div>\r\n</li>\r\n<li class=\"list-group-item\" id=\"process-order\">\r\n                <div class=\"row\">\r\n                    <div class=\"col-sm\">\r\n                        <b>Сума замовлення</b>\r\n                    </div>\r\n                    <div class=\"col-sm text-right\">\r\n                        <b id=\"total_sum\">0</b>\r\n                        <b>грн</b>\r\n                    </div>\r\n                </div>\r\n                <div class=\"d-flex justify-content-around\">\r\n                    <button class=\"btn btn-warning\" id=\"order\">Замовити</button>\r\n                </div>\r\n            </li>\r\n");
 
-},{"ejs":7}],4:[function(require,module,exports){
+},{"ejs":8}],4:[function(require,module,exports){
 /**
  * Created by chaika on 25.01.16.
  */
@@ -432,7 +432,7 @@ $("#vega").click(function () {
 function showPizzaList(list) {
     //Очищаємо старі піци в кошику
     $pizza_list.html("");
-
+    $(".badge").text(list.length);
     //Онволення однієї піци
     function showOnePizza(pizza) {
         var html_code = Templates.PizzaMenu_OneItem({pizza: pizza});
@@ -448,7 +448,6 @@ function showPizzaList(list) {
 
         $pizza_list.append($node);
     }
-
     list.forEach(showOnePizza);
 }
 
@@ -496,6 +495,8 @@ exports.filterPizza = filterPizza;
 exports.initialiseMenu = initialiseMenu;
 
 },{"../Pizza_List":2,"../Templates":3,"./PizzaCart":5}],7:[function(require,module,exports){
+
+},{}],8:[function(require,module,exports){
 /*
  * EJS Embedded JavaScript templates
  * Copyright 2112 Matthew Eernisse (mde@fleegix.org)
@@ -1477,7 +1478,7 @@ if (typeof window != 'undefined') {
   window.ejs = exports;
 }
 
-},{"../package.json":9,"./utils":8,"fs":10,"path":11}],8:[function(require,module,exports){
+},{"../package.json":10,"./utils":9,"fs":7,"path":11}],9:[function(require,module,exports){
 /*
  * EJS Embedded JavaScript templates
  * Copyright 2112 Matthew Eernisse (mde@fleegix.org)
@@ -1646,7 +1647,7 @@ exports.cache = {
   }
 };
 
-},{}],9:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 module.exports={
   "_from": "ejs@^2.4.1",
   "_id": "ejs@2.7.4",
@@ -1670,7 +1671,7 @@ module.exports={
   "_resolved": "https://registry.npmjs.org/ejs/-/ejs-2.7.4.tgz",
   "_shasum": "48661287573dcc53e366c7a1ae52c3a120eec9ba",
   "_spec": "ejs@^2.4.1",
-  "_where": "C:\\Users\\Саша\\PycharmProjects\\JavaScript2.2\\task5",
+  "_where": "C:\\Users\\Оксана\\Documents\\Sasha\\ukma\\JavaScript2.2\\task5",
   "author": {
     "name": "Matthew Eernisse",
     "email": "mde@fleegix.org",
@@ -1715,8 +1716,6 @@ module.exports={
   },
   "version": "2.7.4"
 }
-
-},{}],10:[function(require,module,exports){
 
 },{}],11:[function(require,module,exports){
 (function (process){
