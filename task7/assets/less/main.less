@@ -4,10 +4,7 @@
 @import "pizza/pizza-card";
 @import "footer";
 @import "side";
-@import "navbar";
-@import "pizza/order-info";
-@sidebarWidth:300px;
-@navbarHeight:90px;
+
 
 .button-builder(@color,@size,@left)	{
     display: inline-block;
@@ -19,7 +16,7 @@
   text-align:center;
   color: #fff;
   top:-3%;
-  left:0;
+  left:@left;
   font-size: @size;
   z-index: 1;
 }
@@ -28,24 +25,20 @@ body{
   background-color: @backgroundColor;
 }
 .fixed-top{
-padding-top:0;
-width: 85%;
-z-index:5;
+width: 75%;
+
 }
 #navbarScroll{
+ border-bottom: 2px solid gray;
  margin-left: 10px;
-width: 85%;
+
 }
 #navbar-row{
  margin-left: 10px;
- width: 85%;
 
 }
 hr{
     border: 1px solid gray;
-    width: 10000px;
-    margin:0;
-    margin-left: 10px;
     }
 #pizza-navbar{
     color: white;
@@ -59,7 +52,7 @@ padding-left: 0;}
 .brand {
 height: 70px;
 background-color: @buttonColor;
-margin-top: -12px;
+margin-bottom: 2px;
   span {
     text-align: center;
     color: white;
@@ -68,7 +61,8 @@ margin-top: -12px;
   }
   #pizza{
   margin-top:5px;
-  padding-top: 10px;
+  }
+  #kma{
   }
   #brand {
     transform: rotate(180deg);
@@ -79,10 +73,10 @@ margin-top: -12px;
 
 }
  .hot-offer{
-    .button-builder(red,20px,0%);
+    .button-builder(red,20px,70%);
   }
    .most-popular{
-    .button-builder(green,20px,0%);
+    .button-builder(green,20px,55%);
   }
   .new{
     padding: 5px;
@@ -95,12 +89,12 @@ color: red;
 #enter{
   background-color: @buttonColor;
   color: white;
+  position:absolute;
+  right: 5px;
 }
 
-.col-lg-4{
-padding: 0;}
-
 #cart{
+  margin-top: 70px;
   .all{
     font-size: 35px;
     margin-left: -30%;
@@ -142,7 +136,6 @@ padding: 0;}
 #badge {
   position: fixed;
   bottom: 0;
-  z-index:2;
   margin-left:20px;
 img{
     height: 200px;
@@ -150,7 +143,8 @@ img{
 
   }
   hr{
-    margin:0;
+    margin-top: 0;
+    margin-bottom: 0;
     border-top: 1px dashed red;
     width: 100%;
   }
@@ -169,6 +163,9 @@ img{
     #free-deliver{
     display:none;
     }
+    .fixed-top{
+    width: 65%;
+}
 }
 @media(max-width: 900px){
     #time{
@@ -182,9 +179,4 @@ img{
  .hot-offer{
     .button-builder(red,20px,40%);
   }
-}
-@media(max-width: 600px){
- .card-text{
-    display: none;
- }
 }
