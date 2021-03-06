@@ -4,36 +4,48 @@
 <div class="mx-auto" style="width: 50%;">
     <h3>1.Контактні дані</h3>
     <div class="form-group">
-    <span for="exampleInputEmail1" id="name">Ім'я</span>
-    <input type="text" name="name" class="form-control" id="exampleInputName1" placeholder="Ім'я та прізвище" required>
+        <span for="exampleInputEmail1" id="name">Ім'я</span>
+        <input type="text" name="name" class="form-control" id="exampleInputName1" placeholder="Ім'я та прізвище"
+               required>
         <label id="nameError"></label>
-  </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1" id="phone">Телефон</label>
-    <input type="text" name="phone" class="form-control" id="exampleInputPhone1" placeholder="+3807894532" required>
-      <label id="phoneError"></label>
-  </div>
-   <div class="form-group">
-    <label for="exampleInputAddress1" id="address">Адреса</label>
-    <input type="text" name="address" class="form-control" id="exampleInputAddress1" placeholder="м.Київ" required>
-       <label id="addressError"></label>
-  </div>
-  <div class="order-info">
-  <b>Інформація про замовлення</b>
-  <br>
-  <span><b>Приблизний час доставки:</b> невідомий</span>
-  <br/>
-  <div><b>Адреса доставки</b>
-   <span id="address-field">невідома</span>
-   <button type="submit" class="btn btn-warning" id="submit-order">Next ></button>
-   </div>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1" id="phone">Телефон</label>
+        <input type="text" name="phone" class="form-control" id="exampleInputPhone1" placeholder="+3807894532" required>
+        <label id="phoneError"></label>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputAddress1" id="address">Адреса</label>
+        <input type="text" name="address" class="form-control" id="exampleInputAddress1" placeholder="м.Київ" required>
+        <label id="addressError"></label>
+    </div>
+    <div class="order-info">
+        <b>Інформація про замовлення:</b>
+        <span id="order-info"></span>
+        <span> pizza(-s)</span>
+        <br>
+        <b>Приблизний час доставки:</b>
+        <span id="time-delay">невідомий</span>
+        <br/>
+        <div class="d-flex">
+            <div class="p-2 flex-fill bd-highlight">
+                <b>Адреса доставки</b>
+            </div>
+            <div class="p-2 flex-fill bd-highlight">
+                <span id="address-field">невідома</span>
+            </div>
+            <div class="p-2 flex-fill bd-highlight">
+<!--                <a type="submit" class="btn btn-warning" id="submit-order">Next</a>-->
+                <a id="submit-order">sd</a>
+            </div>
+        </div>
 
     </div>
 
     <div id="googleMap"></div>
-    <script	type="text/javascript"
-src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCubcPLIuUh4c99YPVY_u6IekgCuEi4OJ8">
-</script>
+    <script type="text/javascript"
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCubcPLIuUh4c99YPVY_u6IekgCuEi4OJ8&libraries=&v=weekly">
+    </script>
 </div>
 
 

@@ -107,148 +107,169 @@ function sendToBack(error, data) {
 
 }
 
-$("#orders").click(function(){
+$("#order-info").text(PizzaCart.getPizzaInCart().length);
+
+
+$("#orders").click(function () {
     console.log('hello');
 });
-$("#exampleInputName1").keyup(function(){
-    if (this.value.match("^(?=.{8,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$")){
-        $("#name").css("color","green");
+$("#exampleInputName1").keyup(function () {
+    if (this.value.match("^(?=.{8,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$")) {
+        $("#name").css("color", "green");
         $("#nameError").text("");
         document.getElementById("submit-order").disabled = false;
 
     } else {
-        $("#name").css("color","red");
+        $("#name").css("color", "red");
         $("#nameError").text("ENTER VALID NAME");
-        $("#nameError").css("color","red");
+        $("#nameError").css("color", "red");
         document.getElementById("submit-order").disabled = true;
 
 
     }
 });
 
-$("#exampleInputPhone1").keyup(function(){
-    if (!this.value.match("^([0|\\+[0-9]{1,5})?([7-9][0-9]{9})$")){
-        $("#phone").css("color","red");
+$("#exampleInputPhone1").keyup(function () {
+    if (!this.value.match("^([0|\\+[0-9]{1,5})?([7-9][0-9]{9})$")) {
+        $("#phone").css("color", "red");
         $("#phoneError").text("ENTER VALID PHONE");
-        $("#phoneError").css("color","red");
+        $("#phoneError").css("color", "red");
 
         document.getElementById("submit-order").disabled = true;
 
-    }
-    else {
-        $("#phone").css("color","green");
+    } else {
+        $("#phone").css("color", "green");
         $("#phoneError").text("");
         document.getElementById("submit-order").disabled = false;
 
     }
 });
-$("#exampleInputAddress1").keyup(function(){
-    if (this.value.match("^\\d+\\s[A-z]+\\s[A-z]+")){
-        $("#address").css("color","green");
-        $("#addressError").text("");
-        $("#address-field").text(this.value);
-        document.getElementById("submit-order").disabled = false;
+$("#exampleInputAddress1").keyup(function () {
+    // if (this.value.match("\\s[^\\s]*")){
+    $("#address").css("color", "green");
+    $("#addressError").text("");
+    $("#address-field").text(this.value);
+    document.getElementById("submit-order").disabled = false;
 
-    } else {
-        $("#address").css("color","red");
-        $("#addressError").text("ENTER VALID ADDRESS");
-        $("#addressError").css("color","red");
-
-        document.getElementById("submit-order").disabled = true;
-    }
+    // } else {
+    //     $("#address").css("color","red");
+    //     $("#addressError").text("ENTER VALID ADDRESS");
+    //     $("#addressError").css("color","red");
+    //
+    //     document.getElementById("submit-order").disabled = true;
+    // }
 });
-function initialize() {
-            //Тут починаємо працювати з картою
 
-            var mapProp = {
-                center: new google.maps.LatLng(50.464379,30.519131),
-                zoom: 16
-            };
-            var html_element = document.getElementById("googleMap");
-            var map = new google.maps.Map(html_element,mapProp);
-            var point = new google.maps.LatLng(50.464379,30.519131);
-            var marker = new google.maps.Marker({
-                position: point,
-                //map	- це змінна карти створена за допомогою new
-                //google.maps.Map(...)
-                map: map,
-                icon: "assets/images/map-icon.png"
-            });
-            function geocodeLatLng(latlng, callback) {
-                //Модуль за роботу з адресою
-                var geocoder = new google.maps.Geocoder();
-                geocoder.geocode({
-                    'location': latlng
-                }, function(results, status) {
-                    if (status === google.maps.GeocoderStatus.OK && results[1]) {
-                        var adress = results[1].formatted_address;
-                        callback(null, adress);
-                    } else {
-                        callback(new Error("Can't	find	adress"));
-                    }
-                });
+function initialize() {
+    //Тут починаємо працювати з картою
+    var directionService = new google.maps.DirectionsService();
+    var directionsRenderer = new google.maps.DirectionsRenderer();
+    var mapProp = {
+        center: new google.maps.LatLng(50.464379,30.519131),
+        zoom: 16
+    };
+    var html_element = document.getElementById("googleMap");
+    var map = new google.maps.Map(html_element,mapProp);
+    var point = new google.maps.LatLng(50.464379,30.519131);
+    var marker = new google.maps.Marker({
+        position: point,
+        //map	- це змінна карти створена за допомогою new
+        //google.maps.Map(...)
+        map: map,
+        icon: "assets/images/map-icon.png"
+    });
+    directionsRenderer.setMap(map);
+    function geocodeLatLng(latlng, callback) {
+        //Модуль за роботу з адресою
+        var geocoder = new google.maps.Geocoder();
+        geocoder.geocode({
+            'location': latlng
+        }, function(results, status) {
+            if (status === google.maps.GeocoderStatus.OK && results[1]) {
+                var adress = results[1].formatted_address;
+                callback(null, adress);
+            } else {
+                callback(new Error("Can't	find	adress"));
             }
-            function geocodeAddress(adress, callback) {
-                var geocoder = new google.maps.Geocoder();
-                geocoder.geocode({
-                    'address': address
-                }, function(results, status) {
-                    if (status === google.maps.GeocoderStatus.OK && results[0]) {
-                        var coordinates = results[0].geometry.location;
-                        callback(null, coordinates);
-                    } else {
-                        callback(new Error("Can	not	find	the	adress"));
-                    }
-                });
+        });
+    }
+    function geocodeAddress(adress, callback) {
+        var geocoder = new google.maps.Geocoder();
+        geocoder.geocode({
+            'address': adress
+        }, function(results, status) {
+            if (status === google.maps.GeocoderStatus.OK && results[0]) {
+                var coordinates = results[0].geometry.location;
+                callback(null, coordinates);
+            } else {
+                callback(new Error("Can	not	find	the	adress"));
             }
-            function calculateRoute(A_latlng, B_latlng, callback) {
-                var directionService = new google.maps.DirectionsService();
-                directionService.route({
-                    origin: A_latlng,
-                    destination: B_latlng,
-                    travelMode: google.maps.TravelMode["DRIVING"]
-                }, function(response, status) {
-                    if (status == google.maps.DirectionsStatus.OK) {
-                        varleg = response.routes[0].legs[0];
-                        callback(null, {
-                            duration: leg.duration
+        });
+    }
+    function calculateRoute(A_latlng, B_latlng, callback) {
+
+        directionService.route({
+            origin: A_latlng,
+            destination: B_latlng,
+            travelMode: google.maps.TravelMode["DRIVING"]
+        }, function(response, status) {
+            if (status === "OK") {
+                directionsRenderer.setDirections(response);
+                var leg = response.routes[0].legs[0];
+                callback(null, {
+                    duration: leg.duration
+                });
+            } else {
+                callback(new Error("Cannot find	direction"));
+            }
+        });
+    }
+    google.maps.event.addListener(map, 'click', function(me) {
+        var coordinates = me.latLng;
+        geocodeLatLng(coordinates, function(err, adress) {
+            if (!err) {
+                //Дізналися адресу
+                console.log(adress);
+                geocodeAddress(adress, function (err,address) {
+                    if (!err){
+                        console.log(address);
+                        calculateRoute(mapProp.center,address, function (err, distance){
+                            if (!err){
+                                console.log(distance.duration.text);
+                                $("#time-delay").text(distance.duration.text);
+                            }
                         });
-                    } else {
-                        callback(new Error("Can'	not	find	direction"));
-                    }
-                });
-            }
-            google.maps.event.addListener(map, 'click', function(me) {
-                var coordinates = me.latLng;
-                geocodeLatLng(coordinates, function(err, adress) {
-                    if (!err) {
-                        //Дізналися адресу
-                        calculateRoute(coordinates,point.LatLng, function(err,));
-                        console.log(adress);
-                    } else {
-                        console.log("Немає адреси")
                     }
                 })
-            });
-
-
-            //Карта створена і показана
-        }
+                $("#address-field").text(adress);
+                $("#exampleInputAddress1").val(adress);
+                $("#order-info").text(PizzaCart.getPizzaInCart().length);
+            } else {
+                console.log("Немає адреси");
+            }
+        })
+    });
+    $("#exampleInputAddress1").keyup(function (){
+        console.log('hello');
+    });
+    //Карта створена і показана
+}
 //Коли сторінка завантажилась
 google.maps.event.addDomListener(window,	 'load',	initialize);
 
 $("#submit-order").click(function () {
+    console.log('hello');
     var phoneNumber = $("#exampleInputPhone1").val();
     var login = $("#exampleInputName1").val();
     var address = $("#exampleInputAddress1").val();
-    if (phoneNumber === "" || login === "" || address === ""){
+    if (phoneNumber === "" || login === "" || address === "") {
         return;
     }
-    console.log(phoneNumber,login,address);
+    console.log(phoneNumber, login, address);
     var pizza = [];
     PizzaCart.getPizzaInCart().forEach(element =>
         pizza.push(element.pizza));
-        var order_info = {
+    var order_info = {
         phoneNumber: phoneNumber,
         login: login,
         address: address,
