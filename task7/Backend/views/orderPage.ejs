@@ -36,7 +36,7 @@
             </div>
             <div class="p-2 flex-fill bd-highlight">
 <!--                <a type="submit" class="btn btn-warning" id="submit-order">Next</a>-->
-                <a id="submit-order">sd</a>
+                <a href="https://www.liqpay.ua/checkout/i27751575335" id="submit-order">sd</a>
             </div>
         </div>
 
@@ -46,7 +46,32 @@
     <script type="text/javascript"
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCubcPLIuUh4c99YPVY_u6IekgCuEi4OJ8&libraries=&v=weekly">
     </script>
+    <div id="liqpay_checkout"></div>
+    <script>
+        window.LiqPayCheckoutCallback = function() {
+            LiqPayCheckout.init({
+                data: "eyAidmVyc2lvbiIgOiAzLCAicHVibGljX2tleSIgOiAieW91cl9wdWJsaWNfa2V5IiwgImFjdGlv" +
+                    "biIgOiAicGF5IiwgImFtb3VudCIgOiAxLCAiY3VycmVuY3kiIDogIlVTRCIsICJkZXNjcmlwdGlv" +
+                    "biIgOiAiZGVzY3JpcHRpb24gdGV4dCIsICJvcmRlcl9pZCIgOiAib3JkZXJfaWRfMSIgfQ==",
+                signature: "QvJD5u9Fg55PCx/Hdz6lzWtYwcI=",
+                embedTo: "#liqpay",
+                language: "ua",
+                mode: "embed" // embed || popup
+            }).on("liqpay.callback", function(data){
+                console.log(data.status);
+                console.log(data);
+            }).on("liqpay.ready", function(data){
+                // ready
+            }).on("liqpay.close", function(data){
+                // close
+            });
+        };
+    </script>
+    <script src="//static.liqpay.ua/libjs/checkout.js" async></script>
 </div>
 
+<script>
+    document.getElementsByClassName("plus").disabled = true;
+</script>
 
 <% include common/footer.ejs %>
