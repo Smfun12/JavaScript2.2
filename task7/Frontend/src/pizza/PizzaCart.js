@@ -71,6 +71,7 @@ function initialiseCart() {
     //Фукнція віпрацьвуватиме при завантаженні сторінки
     //Тут можна наприклад, зчитати вміст корзини який збережено в Local Storage то показати його
     Cart = LocalStorage.getPizzas();
+    $("#pizzas-in-order-info").text(Cart.length);
     updateCart();
 }
 

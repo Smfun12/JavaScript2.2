@@ -317,7 +317,7 @@ function addToCart(pizza, size) {
 function containsObject(obj,obj2, list) {
     let i;
     for (i = 0; i < list.length; i++) {
-        if (list[i].pizza.id === obj.id && list[i].size === obj2) {
+        if (list[i].pizza === obj && list[i].size === obj2) {
             list[i].quantity++;
             return true;
         }
@@ -348,6 +348,7 @@ function initialiseCart() {
     //Фукнція віпрацьвуватиме при завантаженні сторінки
     //Тут можна наприклад, зчитати вміст корзини який збережено в Local Storage то показати його
     Cart = LocalStorage.getPizzas();
+    $("#pizzas-in-order-info").text(Cart.length);
     updateCart();
 }
 
@@ -544,11 +545,26 @@ function initPizzaList(error, data) {
 }
 
 function sendToBack(error, data) {
-
+    let receipt_details = data;
+    if (!error) {
+        LiqPayCheckout.init({
+            data:	receipt_details.data,
+            signature:	receipt_details.signature,
+            embedTo:	"#liqpay",
+            mode:	"popup"	//	embed	||	popup
+        }).on("liqpay.callback",	function(data){
+            console.log(data.status);
+            console.log(data);
+        }).on("liqpay.ready",	function(data){
+//	ready
+        }).on("liqpay.close",	function(data){
+//	close
+        });
+    }
+    else{
+        console.log('some error');
+    }
 }
-
-$("#order-info").text(PizzaCart.getPizzaInCart().length);
-
 
 $("#orders").click(function () {
     console.log('hello');
@@ -590,6 +606,7 @@ $("#exampleInputAddress1").keyup(function () {
     $("#addressError").text("");
     $("#address-field").text(this.value);
     document.getElementById("submit-order").disabled = false;
+
     // } else {
     //     $("#address").css("color","red");
     //     $("#addressError").text("ENTER VALID ADDRESS");
@@ -733,10 +750,9 @@ $("#submit-order").click(function () {
     if (phoneNumber === "" || login === "" || address === "") {
         return;
     }
-    console.log(phoneNumber, login, address);
     var pizza = [];
     PizzaCart.getPizzaInCart().forEach(element =>
-        pizza.push(element.pizza));
+        pizza.push(element));
     var order_info = {
         phoneNumber: phoneNumber,
         login: login,
@@ -753,6 +769,18 @@ exports.initialiseMenu = initialiseMenu;
 function doSmth(){
     console.log('hello');
 }
+
+var order	=	{
+    version: 3,
+    public_key:	'i60257707072',
+    action:	"pay",
+    amount:	$("#total_sum").text(),
+    currency:	"UAH",
+    description: 'Description',
+    order_id:	Math.random(),
+//!!!Важливо щоб було 1,	бо інакше візьме гроші!!!
+    sandbox:	1
+};
 },{}],9:[function(require,module,exports){
 /*
  * EJS Embedded JavaScript templates

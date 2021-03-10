@@ -104,11 +104,26 @@ function initPizzaList(error, data) {
 }
 
 function sendToBack(error, data) {
-
+    let receipt_details = data;
+    if (!error) {
+        LiqPayCheckout.init({
+            data:	receipt_details.data,
+            signature:	receipt_details.signature,
+            embedTo:	"#liqpay",
+            mode:	"popup"	//	embed	||	popup
+        }).on("liqpay.callback",	function(data){
+            console.log(data.status);
+            console.log(data);
+        }).on("liqpay.ready",	function(data){
+//	ready
+        }).on("liqpay.close",	function(data){
+//	close
+        });
+    }
+    else{
+        console.log('some error');
+    }
 }
-
-$("#order-info").text(PizzaCart.getPizzaInCart().length);
-
 
 $("#orders").click(function () {
     console.log('hello');
@@ -294,10 +309,9 @@ $("#submit-order").click(function () {
     if (phoneNumber === "" || login === "" || address === "") {
         return;
     }
-    console.log(phoneNumber, login, address);
     var pizza = [];
     PizzaCart.getPizzaInCart().forEach(element =>
-        pizza.push(element.pizza));
+        pizza.push(element));
     var order_info = {
         phoneNumber: phoneNumber,
         login: login,
