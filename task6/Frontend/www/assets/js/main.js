@@ -317,7 +317,7 @@ function addToCart(pizza, size) {
 function containsObject(obj,obj2, list) {
     let i;
     for (i = 0; i < list.length; i++) {
-        if (list[i].pizza === obj && list[i].size === obj2) {
+        if (list[i].pizza.id === obj.id && list[i].size === obj2) {
             list[i].quantity++;
             return true;
         }
@@ -1775,29 +1775,34 @@ exports.cache = {
 
 },{}],10:[function(require,module,exports){
 module.exports={
-  "_from": "ejs@^2.4.1",
+  "_args": [
+    [
+      "ejs@2.7.4",
+      "C:\\Users\\user\\WebstormProjects\\JavaScript2.2\\task6"
+    ]
+  ],
+  "_from": "ejs@2.7.4",
   "_id": "ejs@2.7.4",
   "_inBundle": false,
   "_integrity": "sha512-7vmuyh5+kuUyJKePhQfRQBhXV5Ce+RnaeeQArKu1EAMpL3WbgMt5WG6uQZpEVvYSSsxMXRKOewtDk9RaTKXRlA==",
   "_location": "/ejs",
   "_phantomChildren": {},
   "_requested": {
-    "type": "range",
+    "type": "version",
     "registry": true,
-    "raw": "ejs@^2.4.1",
+    "raw": "ejs@2.7.4",
     "name": "ejs",
     "escapedName": "ejs",
-    "rawSpec": "^2.4.1",
+    "rawSpec": "2.7.4",
     "saveSpec": null,
-    "fetchSpec": "^2.4.1"
+    "fetchSpec": "2.7.4"
   },
   "_requiredBy": [
     "/"
   ],
   "_resolved": "https://registry.npmjs.org/ejs/-/ejs-2.7.4.tgz",
-  "_shasum": "48661287573dcc53e366c7a1ae52c3a120eec9ba",
-  "_spec": "ejs@^2.4.1",
-  "_where": "C:\\Users\\Саша\\PycharmProjects\\JavaScript2.2\\task5",
+  "_spec": "2.7.4",
+  "_where": "C:\\Users\\user\\WebstormProjects\\JavaScript2.2\\task6",
   "author": {
     "name": "Matthew Eernisse",
     "email": "mde@fleegix.org",
@@ -1806,9 +1811,7 @@ module.exports={
   "bugs": {
     "url": "https://github.com/mde/ejs/issues"
   },
-  "bundleDependencies": false,
   "dependencies": {},
-  "deprecated": false,
   "description": "Embedded JavaScript templates",
   "devDependencies": {
     "browserify": "^13.1.1",

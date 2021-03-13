@@ -40,7 +40,7 @@ function addToCart(pizza, size) {
 function containsObject(obj,obj2, list) {
     let i;
     for (i = 0; i < list.length; i++) {
-        if (list[i].pizza === obj && list[i].size === obj2) {
+        if (list[i].pizza.id === obj.id && list[i].size === obj2) {
             list[i].quantity++;
             return true;
         }
