@@ -1,0 +1,65 @@
+<% include common/header.ejs %>
+
+<div id="wdr-component"></div>
+<script>
+    var pivot = new WebDataRocks({
+        container: "#wdr-component",
+        toolbar: true,
+        report: {
+            "dataSource": {
+                "dataSourceType": "csv",
+                "filename": "http://localhost:5050/api/get-pizza-list/"
+            },
+            "slice": {
+                "rows": [
+                    {
+                        "uniqueName": "Category"
+                    },
+                    {
+                        "uniqueName": "Business Type"
+                    }
+                ],
+                "columns": [
+                    {
+                        "uniqueName": "Measures"
+                    }
+                ],
+                "measures": [
+                    {
+                        "uniqueName": "Price",
+                        "aggregation": "sum",
+                        "format": "currency"
+                    },
+                    {
+                        "uniqueName": "Quantity",
+                        "aggregation": "sum"
+                    },
+                    {
+                        "uniqueName": "Price * Quantity",
+                        "formula": "sum(\"Price\") * sum(\"Quantity\") ",
+                        "individual": true,
+                        "caption": "Overall Price (Price x Quantity)",
+                        "format": "currency"
+                    }
+                ],
+                "expands": {
+                    "rows": [
+                        {
+                            "tuple": [
+                                "Category.Accessories"
+                            ]
+                        }
+                    ]
+                }
+            },
+            formats: [{
+                name: "currency",
+                currencySymbol: "$",
+                currencySymbolAlign: "left",
+                thousandsSeparator: ",",
+                decimalPlaces: 2
+            }]
+        }
+    });
+</script>
+<% include common/footer.ejs %>
